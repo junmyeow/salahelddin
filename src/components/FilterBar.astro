@@ -1,0 +1,125 @@
+---
+import { FORMATS, TOPICS, SORTS, toArabicDigits } from '../data/taxonomy';
+
+interface Props {
+  eras: { id: string; label: string; startYear: number; endYear: number }[];
+  counts: Record<string, number>;
+  total: number;
+}
+
+const { eras, counts, total } = Astro.props;
+
+const chip =
+  'cursor-pointer select-none rounded-full border border-parchment-300 bg-parchment-50 px-5 py-2.5 text-base text-ink-600 transition duration-200 ease-[var(--ease-out-soft)] active:translate-y-px ' +
+  'hover:border-gold-400 hover:text-ink-900 ' +
+  'peer-checked:border-teal-700 peer-checked:bg-teal-800 peer-checked:text-parchment-50 peer-checked:shadow-[var(--shadow-teal)] ' +
+  'peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-gold-500 ' +
+  'dark:border-night-700 dark:bg-night-900 dark:text-parchment-300/80 dark:hover:text-parchment-100 dark:peer-checked:bg-teal-700 dark:peer-checked:text-parchment-50';
+
+const selectCls =
+  'w-full appearance-none rounded-xl border border-parchment-300 bg-parchment-50 px-4 py-3.5 text-center text-base text-ink-800 transition ' +
+  'hover:border-gold-400 focus:border-teal-700 focus:outline-none ' +
+  'dark:border-night-700 dark:bg-night-900 dark:text-parchment-200';
+
+const legendCls =
+  'mb-4 block text-center text-base font-semibold tracking-[0.15em] text-teal-800 dark:text-teal-300';
+---
+
+<section
+  id="filters"
+  aria-label="البحث والتصفية"
+  class="rounded-3xl border border-parchment-300 bg-parchment-50/80 p-6 shadow-[var(--shadow-raised)] backdrop-blur sm:p-9 dark:border-night-700 dark:bg-night-900/70"
+>
+  {/* ——— البحث ——— */}
+  <div class="relative mx-auto max-w-2xl">
+    <svg
+      class="pointer-events-none absolute top-1/2 start-5 size-6 -translate-y-1/2 text-ink-500 dark:text-parchment-300/50"
+      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"
+    >
+      <circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" />
+    </svg>
+    <input
+      type="search"
+      id="q"
+      autocomplete="off"
+      placeholder="ابحث في العنوان أو المؤلّف أو الوسوم…"
+      aria-describedby="result-count"
+      class="w-full rounded-2xl border border-parchment-300 bg-parchment-50 py-4 ps-14 pe-5 text-center text-lg text-ink-900 placeholder:text-ink-500/70 focus:border-teal-700 focus:outline-none dark:border-night-700 dark:bg-night-950 dark:text-parchment-100 dark:placeholder:text-parchment-300/40"
+    />
+  </div>
+
+  <div class="rule-diamond my-7"><span aria-hidden="true" class="text-base">◈</span></div>
+
+  {/* ——— النوع ——— */}
+  <fieldset>
+    <legend class={legendCls}>نوع المادة</legend>
+    <div class="flex flex-wrap justify-center gap-2.5">
+      {
+        FORMATS.map((f) => (
+          <label class="relative inline-flex" title={f.hint}>
+            <input type="checkbox" name="format" value={f.id} class="peer sr-only" />
+            <span class={chip}>
+              <span aria-hidden="true" class="me-1.5">{f.icon}</span>
+              {f.label}
+              <span class="ms-2 text-sm opacity-60">{toArabicDigits(counts[f.id] ?? 0)}</span>
+            </span>
+          </label>
+        ))
+      }
+    </div>
+  </fieldset>
+
+  {/* ——— الموضوع ——— */}
+  <fieldset class="mt-8">
+    <legend class={legendCls}>الموضوع</legend>
+    <div class="flex flex-wrap justify-center gap-2.5">
+      {
+        TOPICS.map((t) => (
+          <label class="relative inline-flex">
+            <input type="checkbox" name="topic" value={t.id} class="peer sr-only" />
+            <span class={chip}>{t.label}</span>
+          </label>
+        ))
+      }
+    </div>
+  </fieldset>
+
+  {/* ——— الحقبة + الترتيب ——— */}
+  <div class="mx-auto mt-8 grid max-w-3xl gap-5 sm:grid-cols-2">
+    <div>
+      <label for="era" class={legendCls}>الحقبة التاريخية</label>
+      <select id="era" class={selectCls}>
+        <option value="">كل الحقب</option>
+        {
+          eras.map((e) => (
+            <option value={e.id}>
+              {e.label} ({toArabicDigits(e.startYear)}–{toArabicDigits(e.endYear)}م)
+            </option>
+          ))
+        }
+      </select>
+    </div>
+
+    <div>
+      <label for="sort" class={legendCls}>الترتيب</label>
+      <select id="sort" class={selectCls}>
+        {SORTS.map((s) => <option value={s.id}>{s.label}</option>)}
+      </select>
+    </div>
+  </div>
+
+  {/* ——— الحصيلة ——— */}
+  <div class="mt-8 flex flex-col items-center gap-4 border-t border-parchment-300 pt-6 dark:border-night-700">
+    <p id="result-count" role="status" aria-live="polite" class="text-lg text-ink-600 dark:text-parchment-300/75">
+      عرض <strong class="font-semibold text-teal-800 dark:text-teal-300">{toArabicDigits(total)}</strong> من {toArabicDigits(total)} مادة
+    </p>
+    <button
+      type="button"
+      id="reset"
+      hidden
+      class="rounded-lg border border-parchment-400 px-5 py-2.5 text-base text-ink-600 transition hover:border-crimson-500 hover:text-crimson-700 dark:border-night-700 dark:text-parchment-300/80"
+    >
+      مسح كل المرشّحات
+    </button>
+  </div>
+</section>

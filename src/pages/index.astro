@@ -1,0 +1,152 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import FigureBand from '../components/FigureBand.astro';
+import SectionHead from '../components/SectionHead.astro';
+import FilterBar from '../components/FilterBar.astro';
+import Timeline from '../components/Timeline.astro';
+import ResourceCard from '../components/ResourceCard.astro';
+import DailyPick from '../components/DailyPick.astro';
+import { withBase } from '../lib/url';
+import {
+  topicLabel,
+  platformLabel,
+  formatOf,
+  formatYearRange,
+  formatDuration,
+  toArabicDigits,
+  FORMATS,
+} from '../data/taxonomy';
+
+const rawEras = await getCollection('eras');
+const eras = rawEras
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((e) => ({ id: e.id, ...e.data }));
+const eraLabel = new Map(eras.map((e) => [e.id, e.label]));
+
+const resources = await getCollection('resources');
+// الترتيب الافتراضي: الأحدث إضافةً
+const sorted = resources.sort((a, b) => b.data.addedDate.localeCompare(a.data.addedDate));
+
+// عدّادات المرشّحات
+const formatCounts: Record<string, number> = {};
+const eraCounts: Record<string, number> = {};
+for (const r of resources) {
+  formatCounts[r.data.format] = (formatCounts[r.data.format] ?? 0) + 1;
+  eraCounts[r.data.historical.eraId] = (eraCounts[r.data.historical.eraId] ?? 0) + 1;
+}
+
+/*
+  حمولة واحدة تخدم مستهلكَين: محرّك البحث (Fuse يقرأ الحقول المفتاحية فقط)
+  ولوحة «اختيار اليوم» (تقرأ حقول العرض). لا تكرار للبيانات على السلك.
+*/
+const catalog = sorted.map((r) => {
+  const d = r.data;
+  const fmt = formatOf(d.format);
+  const meta = [
+    formatDuration(d.duration),
+    d.pageCount ? `${toArabicDigits(d.pageCount)} صفحة` : null,
+    d.language.includes('ar') ? 'عربي' : d.language.includes('en') ? 'إنجليزي' : null,
+  ]
+    .filter(Boolean)
+    .join(' · ');
+
+  return {
+    id: r.id,
+    // ——— حقول البحث ———
+    title: d.title,
+    titleAlt: d.titleAlt,
+    creator: d.creator.name,
+    summary: d.summary,
+    tags: d.tags,
+    topics: [
+      ...d.topics.map(topicLabel),
+      platformLabel(d.sourcePlatform),
+      eraLabel.get(d.historical.eraId) ?? '',
+    ],
+    // ——— حقول العرض في لوحة اختيار اليوم ———
+    formatLabel: fmt?.label ?? d.format,
+    formatIcon: fmt?.icon ?? '◈',
+    eraLabel: eraLabel.get(d.historical.eraId) ?? '',
+    years: formatYearRange(d.historical.startYear, d.historical.endYear),
+    meta,
+    href: withBase(`/mawrid/${r.id}`),
+    thumb:
+      d.thumbnail?.src ??
+      (d.embed?.provider === 'youtube' ? `https://i.ytimg.com/vi/${d.embed.id}/hqdefault.jpg` : null),
+  };
+});
+
+const stats = [
+  { value: resources.length, label: 'مادة مفهرسة' },
+  { value: FORMATS.length, label: 'نوعاً من الوسائط' },
+  { value: eras.length, label: 'حقبة تاريخية' },
+];
+---
+
+<BaseLayout>
+  <Hero stats={stats} />
+
+  <div class="mx-auto max-w-7xl space-y-20 px-4 py-20 sm:px-6">
+    {/* ————— اختيار اليوم ————— */}
+    <DailyPick items={catalog} />
+
+    {/* ————— الخط الزمني ————— */}
+    <Timeline eras={eras} counts={eraCounts} />
+
+    {/* ————— لوحة الشخصية ————— */}
+    <FigureBand />
+
+    {/* ————— الدليل ————— */}
+    <section id="directory" class="scroll-mt-24">
+      <SectionHead
+        eyebrow="الفهرس"
+        title="الدليل"
+        subtitle="ابحث وصفِّ حسب النوع أو الموضوع أو الحقبة. كل الروابط خارجية، وتُنسَب لأصحابها."
+        class="mb-10"
+      />
+
+      <FilterBar eras={eras} counts={formatCounts} total={resources.length} />
+
+      <div id="grid" class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          sorted.map((entry, i) => (
+            <ResourceCard
+              entry={entry}
+              eraLabel={eraLabel.get(entry.data.historical.eraId) ?? ''}
+              index={i}
+            />
+          ))
+        }
+      </div>
+
+      <div
+        id="empty-state"
+        hidden
+        class="mt-10 rounded-3xl border border-dashed border-parchment-400 px-6 py-20 text-center dark:border-night-700"
+      >
+        <p class="font-display text-5xl text-gold-500/70" aria-hidden="true">◈</p>
+        <p class="mt-5 font-display text-2xl font-bold text-ink-900 dark:text-parchment-100">
+          لا توجد مواد مطابقة
+        </p>
+        <p class="mx-auto mt-3 max-w-md text-lg text-ink-600 dark:text-parchment-300/70">
+          جرّب توسيع البحث أو إزالة بعض المرشّحات. وإن كنت تعرف مصدراً يستحق الإدراج،
+          فاقترحه علينا ونراجعه.
+        </p>
+        <button
+          type="button"
+          data-open-suggest
+          class="mt-6 rounded-xl bg-teal-800 px-6 py-3 text-base font-semibold text-parchment-50 transition hover:bg-teal-700 dark:bg-teal-700"
+        >
+          اقترح مصدراً
+        </button>
+      </div>
+    </section>
+  </div>
+
+  <script type="application/json" id="search-index" set:html={JSON.stringify(catalog)} is:inline />
+  <script>
+    import '../scripts/directory';
+  </script>
+</BaseLayout>

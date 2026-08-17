@@ -1,0 +1,40 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  /** عرض العنصر بالبكسل — يحدّد جودة الصورة المولّدة */
+  width?: number;
+  class?: string;
+  /** سُمك الإطار الذهبي */
+  frame?: 'thin' | 'thick';
+}
+
+const { src, alt, width = 420, class: klass = '', frame = 'thick' } = Astro.props;
+const pad = frame === 'thick' ? 'p-[5px]' : 'p-[3px]';
+---
+
+<div class:list={['relative', klass]}>
+  {/* هالة ذهبية خلف القوس */}
+  <div
+    class="pointer-events-none absolute -inset-6 rounded-full bg-gold-500/12 blur-2xl dark:bg-gold-500/15"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div
+    class:list={[
+      'relative bg-gradient-to-b from-gold-400 via-gold-600 to-gold-700 shadow-[var(--shadow-float)]',
+      pad,
+    ]}
+    style="clip-path:url(#arch-clip)"
+  >
+    <div class="relative overflow-hidden bg-ink-900" style="clip-path:url(#arch-clip)">
+      <Image src={src} alt={alt} width={width} class="size-full object-cover" />
+      {/* معالجة لونية + تدرّج سفلي يربط الصورة بلوحة الألوان */}
+      <div class="absolute inset-0 bg-teal-900/12 mix-blend-multiply" aria-hidden="true"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-ink-900/45 via-transparent to-transparent" aria-hidden="true"></div>
+    </div>
+  </div>
+</div>

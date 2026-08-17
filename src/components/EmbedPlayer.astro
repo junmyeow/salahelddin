@@ -1,0 +1,89 @@
+---
+interface Props {
+  embed: { provider: 'youtube' | 'vimeo' | 'archive-org'; id: string; startAt?: number };
+  title: string;
+}
+
+const { embed, title } = Astro.props;
+const start = embed.startAt ?? 0;
+
+// youtube-nocookie: لا تُزرع كوكيز التتبّع قبل ضغط المستخدم على التشغيل
+const SRC: Record<string, string> = {
+  youtube: `https://www.youtube-nocookie.com/embed/${embed.id}?rel=0&modestbranding=1${start ? `&start=${start}` : ''}`,
+  vimeo: `https://player.vimeo.com/video/${embed.id}?dnt=1`,
+  'archive-org': `https://archive.org/embed/${embed.id}`,
+};
+const src = SRC[embed.provider];
+const poster =
+  embed.provider === 'youtube' ? `https://i.ytimg.com/vi/${embed.id}/maxresdefault.jpg` : null;
+
+// أرشيف الإنترنت يعرض قارئ كتب — نسبة عرض أطول
+const ratio = embed.provider === 'archive-org' ? 'aspect-[4/3]' : 'aspect-video';
+---
+
+{
+  embed.provider === 'archive-org' ? (
+    <div class={`${ratio} w-full overflow-hidden rounded-2xl border border-parchment-300 bg-ink-900 dark:border-night-700`}>
+      <iframe
+        src={src}
+        title={title}
+        loading="lazy"
+        allowfullscreen
+        class="size-full"
+        referrerpolicy="no-referrer-when-downgrade"
+      />
+    </div>
+  ) : (
+    /* واجهة كسولة: لا يُحمَّل المشغّل ولا سكربتاته إلا بعد الضغط */
+    <div
+      data-embed-facade
+      data-src={src}
+      data-title={title}
+      class={`group relative ${ratio} w-full cursor-pointer overflow-hidden rounded-2xl border border-parchment-300 bg-ink-900 dark:border-night-700`}
+    >
+      {poster && (
+        <img
+          src={poster}
+          alt=""
+          loading="lazy"
+          class="absolute inset-0 size-full object-cover opacity-85 transition group-hover:opacity-100"
+          onerror="this.remove()"
+        />
+      )}
+      <button
+        type="button"
+        class="absolute inset-0 grid place-items-center bg-gradient-to-t from-ink-900/70 to-transparent"
+        aria-label={`تشغيل: ${title}`}
+      >
+        <span class="grid size-16 place-items-center rounded-full bg-crimson-700/95 text-parchment-50 shadow-[var(--shadow-float)] transition duration-300 ease-[var(--ease-spring)] group-hover:scale-110 group-active:scale-100">
+          <svg viewBox="0 0 24 24" class="size-7 translate-x-px" fill="currentColor" aria-hidden="true">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </span>
+      </button>
+      <p class="absolute bottom-3 start-3 rounded-lg bg-ink-900/75 px-2.5 py-1 text-xs text-parchment-100">
+        يُشغَّل من {embed.provider === 'youtube' ? 'يوتيوب' : 'ڤيميو'} — بضغطك فقط
+      </p>
+    </div>
+  )
+}
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-embed-facade]').forEach((facade) => {
+    facade.addEventListener(
+      'click',
+      () => {
+        const frame = document.createElement('iframe');
+        frame.src = `${facade.dataset.src}&autoplay=1`;
+        frame.title = facade.dataset.title ?? '';
+        frame.className = 'size-full';
+        frame.allow =
+          'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        frame.allowFullscreen = true;
+        facade.replaceChildren(frame);
+        facade.classList.remove('cursor-pointer');
+      },
+      { once: true },
+    );
+  });
+</script>

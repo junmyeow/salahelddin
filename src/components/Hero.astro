@@ -1,0 +1,96 @@
+---
+import { Image } from 'astro:assets';
+import ArchFrame from './ArchFrame.astro';
+import OrnamentRule from './OrnamentRule.astro';
+import portrait from '../assets/saladin-portrait.jpg';
+import { toArabicDigits } from '../data/taxonomy';
+
+interface Props {
+  stats: { value: number; label: string }[];
+}
+const { stats } = Astro.props;
+---
+
+<section class="relative overflow-hidden border-b border-parchment-300 dark:border-night-800">
+  {/* ——— خلفية جوّية: البورتريه نفسه مموّه بشدّة ——— */}
+  <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+    {/* مموّهة بشدّة ⇒ عرضٌ صغير يكفي */}
+    <Image
+      src={portrait}
+      alt=""
+      width={420}
+      class="size-full scale-125 object-cover opacity-[0.22] blur-3xl dark:opacity-[0.30]"
+      loading="eager"
+    />
+    <div
+      class="absolute inset-0 bg-gradient-to-b from-parchment-100/70 via-parchment-100/88 to-parchment-100 dark:from-night-950/80 dark:via-night-950/92 dark:to-night-950"
+    >
+    </div>
+    {/* شبكة النجوم الثمانية */}
+    <div
+      class="absolute inset-0 opacity-[0.06] dark:opacity-[0.10]"
+      style="background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%230d4740' stroke-width='1.1'%3E%3Cpath d='M32 2 38 26 62 32 38 38 32 62 26 38 2 32 26 26Z'/%3E%3C/g%3E%3C/svg%3E&quot;)"
+    >
+    </div>
+  </div>
+
+  {/* ——— المحتوى ——— */}
+  <div class="relative mx-auto flex max-w-4xl flex-col items-center px-4 py-14 text-center sm:px-6 sm:py-18">
+    <ArchFrame
+      src={portrait}
+      alt="صورة متخيَّلة للناصر صلاح الدين يوسف بن أيوب"
+      width={520}
+      class="w-44 sm:w-52"
+    />
+
+    <p class="mt-8 font-display text-xl tracking-[0.18em] text-gold-700 dark:text-gold-400">
+      ٥٣٢ – ٥٨٩ هـ &nbsp;·&nbsp; ١١٣٧ – ١١٩٣ م
+    </p>
+
+    {/*
+      أميري يمدّ الصاعدات والنازلات كثيراً، فالسطران يتلامسان عند leading ضيّق.
+      نستعمل leading فسيحاً + هامشاً صريحاً بين الشطرين.
+    */}
+    <h1 class="mt-4 font-display text-5xl leading-[1.6] font-bold text-ink-900 sm:text-6xl lg:text-7xl dark:text-parchment-50">
+      <span class="block">الناصر صلاح الدين</span>
+      <span class="mt-5 block text-4xl leading-[1.6] text-teal-800 sm:mt-7 sm:text-5xl lg:text-6xl dark:text-teal-300">
+        يوسف بن أيّوب
+      </span>
+    </h1>
+
+    <OrnamentRule class="mt-7" />
+
+    <p class="mt-6 max-w-2xl text-xl leading-[1.95] text-ink-700 dark:text-parchment-300/85">
+      دليلٌ مُنسَّق يجمع في مكانٍ واحد ما تفرّق من وثائقيّات وكتبٍ مرقمنة ومقالاتٍ ومصادرَ أوّلية
+      عن سيرته وعصره. لا نستضيف المواد، بل نُرشدك إلى مظانّها الأصلية مع نسبةٍ كاملة لأصحابها.
+    </p>
+
+    <div class="mt-8 flex flex-wrap justify-center gap-4">
+      <a
+        href="#directory"
+        class="rounded-xl bg-teal-800 px-8 py-4 text-lg font-semibold text-parchment-50 shadow-[var(--shadow-teal)] transition duration-200 ease-[var(--ease-out-soft)] hover:bg-teal-700 active:translate-y-px dark:bg-teal-700 dark:hover:bg-teal-600"
+      >
+        تصفّح الدليل
+      </a>
+      <a
+        href="#timeline"
+        class="rounded-xl border-2 border-gold-500/60 px-8 py-4 text-lg font-semibold text-gold-700 transition duration-200 ease-[var(--ease-out-soft)] hover:bg-gold-500/10 active:translate-y-px dark:text-gold-400"
+      >
+        ابدأ من الخط الزمني
+      </a>
+    </div>
+
+    <dl class="mt-12 flex flex-wrap justify-center gap-x-14 gap-y-6">
+      {
+        stats.map((s) => (
+          <div class="text-center">
+            <dd class="font-display text-4xl font-bold text-teal-800 dark:text-teal-300">
+              {toArabicDigits(s.value)}
+            </dd>
+            <dt class="mt-1 text-base text-ink-600 dark:text-parchment-300/65">{s.label}</dt>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>

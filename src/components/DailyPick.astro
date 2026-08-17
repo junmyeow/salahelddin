@@ -1,0 +1,232 @@
+---
+import OrnamentRule from './OrnamentRule.astro';
+import { pickIndexForDay } from '../lib/daily';
+
+/**
+ * لوحة «اختيار اليوم».
+ *
+ * تُرسَم على الخادم باختيار يوم البناء (فتعمل بلا جافاسكربت ويقرأها المفهرس)،
+ * ثم يصحّحها سكربت صغير حسب تاريخ الزائر المحلي. لا تُرسَل حمولة إضافية:
+ * السكربت يقرأ نفس مصفوفة `#search-index` التي يستعملها البحث.
+ */
+interface Item {
+  id: string;
+  title: string;
+  summary: string;
+  formatLabel: string;
+  formatIcon: string;
+  creator: string;
+  eraLabel: string;
+  years: string;
+  meta: string;
+  href: string;
+  thumb: string | null;
+}
+
+interface Props {
+  items: Item[];
+}
+
+const { items } = Astro.props;
+const pick = items[pickIndexForDay(items.length)];
+---
+
+{
+  pick && (
+    <section
+      aria-labelledby="daily-title"
+      class="relative overflow-hidden rounded-3xl border-2 border-gold-500/45 bg-gradient-to-bl from-gold-200/35 via-parchment-50/60 to-parchment-100/40 p-6 shadow-[var(--shadow-raised)] sm:p-10 dark:border-gold-600/35 dark:from-night-800 dark:via-night-900 dark:to-night-900"
+    >
+      {/* زخرفة النجوم */}
+      <div
+        class="pointer-events-none absolute inset-0 opacity-[0.05] dark:opacity-[0.09]"
+        aria-hidden="true"
+        style="background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='52' height='52' viewBox='0 0 52 52'%3E%3Cg fill='none' stroke='%23b0851f' stroke-width='1'%3E%3Cpath d='M26 1 30 22 51 26 30 30 26 51 22 30 1 26 22 22Z'/%3E%3C/g%3E%3C/svg%3E&quot;)"
+      />
+
+      <div class="relative">
+        <p class="text-center font-display text-lg tracking-[0.22em] text-gold-700 dark:text-gold-400">
+          اختيار اليوم
+        </p>
+        <h2 id="daily-title" class="sr-only">
+          اختيار اليوم من الأرشيف
+        </h2>
+        <OrnamentRule class="mt-4" size="sm" />
+
+        <div class="mx-auto mt-8 grid max-w-4xl items-center gap-8 sm:grid-cols-[auto_minmax(0,1fr)]">
+          {/* اللوح البصري: مصغّرة إن وُجدت، وإلا رمز النوع في قوس ذهبي */}
+          <div class="mx-auto sm:mx-0">
+            <div
+              class="relative grid size-32 place-items-center overflow-hidden bg-gradient-to-b from-gold-400 via-gold-600 to-gold-700 p-[4px] shadow-[var(--shadow-gold)] sm:size-40"
+              style="clip-path:url(#arch-clip)"
+            >
+              <div
+                class="relative grid size-full place-items-center bg-teal-900"
+                style="clip-path:url(#arch-clip)"
+              >
+                <img
+                  data-daily-thumb
+                  src={pick.thumb ?? ''}
+                  alt=""
+                  hidden={!pick.thumb}
+                  class="absolute inset-0 size-full object-cover"
+                  onerror="this.hidden=true"
+                />
+                <span
+                  data-daily-icon
+                  class="relative font-display text-5xl text-gold-200/85"
+                  aria-hidden="true"
+                >
+                  {pick.formatIcon}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center sm:text-start">
+            <p class="flex flex-wrap items-center justify-center gap-x-2.5 gap-y-1 text-base text-ink-500 sm:justify-start dark:text-parchment-300/60">
+              <span
+                data-daily-format
+                class="rounded-full bg-teal-800 px-3.5 py-1 text-sm font-semibold text-parchment-50 dark:bg-teal-700"
+              >
+                {pick.formatLabel}
+              </span>
+              <span data-daily-years class="font-medium text-gold-700 dark:text-gold-400">
+                {pick.years}
+              </span>
+              <span aria-hidden="true">·</span>
+              <span data-daily-era>{pick.eraLabel}</span>
+            </p>
+
+            <h3 class="mt-4 font-display text-3xl leading-[1.5] font-bold text-ink-900 sm:text-4xl dark:text-parchment-50">
+              <a
+                data-daily-link
+                href={pick.href}
+                class="transition duration-200 ease-[var(--ease-out-soft)] hover:text-teal-800 dark:hover:text-teal-300"
+              >
+                <span data-daily-title>{pick.title}</span>
+              </a>
+            </h3>
+
+            <p
+              data-daily-summary
+              class="mt-4 text-lg leading-[1.95] text-ink-600 dark:text-parchment-300/80"
+            >
+              {pick.summary}
+            </p>
+
+            <p class="mt-4 text-base text-ink-500 dark:text-parchment-300/60">
+              <span class="text-ink-500/70 dark:text-parchment-300/40">المصدر:</span>{' '}
+              <span data-daily-creator class="font-medium text-ink-700 dark:text-parchment-200">
+                {pick.creator}
+              </span>
+              <span data-daily-meta class="block text-sm">
+                {pick.meta}
+              </span>
+            </p>
+
+            <div class="mt-7 flex flex-wrap items-center justify-center gap-4 sm:justify-start">
+              <a
+                data-daily-cta
+                href={pick.href}
+                class="rounded-xl bg-teal-800 px-7 py-3.5 text-lg font-semibold text-parchment-50 shadow-[var(--shadow-teal)] transition duration-200 ease-[var(--ease-out-soft)] hover:bg-teal-700 active:translate-y-px dark:bg-teal-700 dark:hover:bg-teal-600"
+              >
+                افتح المادة
+              </a>
+              <p class="text-sm text-ink-500 dark:text-parchment-300/50">
+                يتغيّر كل يوم عند منتصف الليل
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+<script>
+  import { pickIndexForDay, secondsUntilLocalMidnight } from '../lib/daily';
+
+  const root = document.querySelector<HTMLElement>('[data-daily-title]')?.closest('section');
+  const raw = document.getElementById('search-index')?.textContent;
+
+  if (root && raw) {
+    type Item = {
+      title: string;
+      summary: string;
+      formatLabel: string;
+      formatIcon: string;
+      creator: string;
+      eraLabel: string;
+      years: string;
+      meta: string;
+      href: string;
+      thumb: string | null;
+    };
+
+    let items: Item[] = [];
+    try {
+      items = JSON.parse(raw);
+    } catch {}
+
+    const q = <T extends HTMLElement>(sel: string) => root.querySelector<T>(sel);
+
+    function render() {
+      const item = items[pickIndexForDay(items.length)];
+      if (!item) return;
+
+      const set = (sel: string, text: string) => {
+        const el = q(sel);
+        if (el) el.textContent = text;
+      };
+
+      set('[data-daily-title]', item.title);
+      set('[data-daily-summary]', item.summary);
+      set('[data-daily-format]', item.formatLabel);
+      set('[data-daily-years]', item.years);
+      set('[data-daily-era]', item.eraLabel);
+      set('[data-daily-creator]', item.creator);
+      set('[data-daily-meta]', item.meta);
+      set('[data-daily-icon]', item.formatIcon);
+
+      for (const sel of ['[data-daily-link]', '[data-daily-cta]']) {
+        q<HTMLAnchorElement>(sel)?.setAttribute('href', item.href);
+      }
+
+      const img = q<HTMLImageElement>('[data-daily-thumb]');
+      if (img) {
+        if (item.thumb) {
+          img.src = item.thumb;
+          img.hidden = false;
+        } else {
+          img.removeAttribute('src');
+          img.hidden = true;
+        }
+      }
+    }
+
+    render();
+
+    // تبديل تلقائي عند منتصف الليل لمن يترك الصفحة مفتوحة
+    let timer: number;
+    const schedule = () => {
+      clearTimeout(timer);
+      timer = window.setTimeout(
+        () => {
+          render();
+          schedule();
+        },
+        secondsUntilLocalMidnight() * 1000,
+      );
+    };
+    schedule();
+
+    // ومَن يعود إلى التبويب بعد يوم يجد الاختيار محدّثاً
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) {
+        render();
+        schedule();
+      }
+    });
+  }
+</script>

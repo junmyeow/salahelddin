@@ -1,0 +1,125 @@
+---
+import Thumb from './Thumb.astro';
+import { withBase } from '../lib/url';
+import {
+  formatOf,
+  topicLabel,
+  formatYearRange,
+  formatDuration,
+  toArabicDigits,
+} from '../data/taxonomy';
+
+interface Props {
+  entry: any;
+  eraLabel: string;
+  index: number;
+}
+
+const { entry, eraLabel, index } = Astro.props;
+const d = entry.data;
+const fmt = formatOf(d.format);
+
+const meta: string[] = [];
+if (d.duration) meta.push(formatDuration(d.duration)!);
+if (d.pageCount) meta.push(`${toArabicDigits(d.pageCount)} صفحة`);
+if (d.language.includes('ar')) meta.push('عربي');
+else if (d.language.length) meta.push(d.language.includes('en') ? 'إنجليزي' : d.language[0]);
+
+const href = withBase(`/mawrid/${entry.id}`);
+
+// بلا صورة حقيقية تكون المساحة زخرفةً محضة ⇒ نمنحها ارتفاعاً أقلّ
+const hasImage = Boolean(d.thumbnail) || d.embed?.provider === 'youtube';
+const thumbRatio = hasImage ? 'aspect-[16/10]' : 'aspect-[16/5]';
+---
+
+<article
+  data-card
+  data-id={entry.id}
+  data-format={d.format}
+  data-era={d.historical.eraId}
+  data-topics={d.topics.join(' ')}
+  data-year-start={d.historical.startYear}
+  data-added={d.addedDate}
+  data-score={d.curatorScore}
+  data-title={d.title}
+  data-index={index}
+  class="group relative flex flex-col overflow-hidden rounded-2xl border border-parchment-300 bg-parchment-50 shadow-[var(--shadow-base)] transition duration-300 ease-[var(--ease-out-soft)] hover:-translate-y-1.5 hover:border-gold-400 hover:shadow-[var(--shadow-float)] active:translate-y-0 dark:border-night-700 dark:bg-night-900 dark:hover:border-gold-600"
+>
+  <Thumb
+    thumbnail={d.thumbnail}
+    embed={d.embed}
+    format={d.format}
+    title={d.title}
+    class={`${thumbRatio} w-full`}
+  />
+
+  {/* شارة النوع */}
+  <span
+    class="absolute top-4 start-4 inline-flex items-center gap-1.5 rounded-full bg-parchment-50/95 px-3.5 py-1.5 text-sm font-semibold text-teal-800 shadow-[var(--shadow-base)] backdrop-blur dark:bg-night-950/90 dark:text-teal-300"
+  >
+    <span aria-hidden="true">{fmt?.icon}</span>
+    {fmt?.label}
+  </span>
+
+  {
+    d.featured && (
+      <span class="absolute top-4 end-4 rounded-full bg-gold-500 px-3.5 py-1.5 text-sm font-bold text-ink-900 shadow-[var(--shadow-gold)]">
+        مختار
+      </span>
+    )
+  }
+
+  <div class="flex flex-1 flex-col gap-3 p-6 text-center">
+    <div class="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm text-ink-500 dark:text-parchment-300/60">
+      <span class="font-medium text-gold-700 dark:text-gold-400">
+        {formatYearRange(d.historical.startYear, d.historical.endYear)}
+      </span>
+      <span aria-hidden="true">·</span>
+      <span>{eraLabel}</span>
+      {meta.length > 0 && <span aria-hidden="true">·</span>}
+      {meta.length > 0 && <span>{meta.join(' · ')}</span>}
+    </div>
+
+    <h3 class="font-display text-2xl leading-snug font-bold text-ink-900 dark:text-parchment-100">
+      <a href={href} class="after:absolute after:inset-0 after:content-['']">
+        {d.title}
+      </a>
+    </h3>
+
+    <p class="line-clamp-3 text-base leading-relaxed text-ink-600 dark:text-parchment-300/75">
+      {d.summary}
+    </p>
+
+    <div class="mt-auto space-y-3 pt-3">
+      <div class="flex items-center justify-center gap-2.5" aria-hidden="true">
+        <span class="h-px w-8 bg-gold-500/35"></span>
+        <span class="text-xs text-gold-600/70">◈</span>
+        <span class="h-px w-8 bg-gold-500/35"></span>
+      </div>
+
+      <p class="text-sm text-ink-500 dark:text-parchment-300/60">
+        <span class="text-ink-500/70 dark:text-parchment-300/40">المصدر:</span>
+        <span class="font-medium text-ink-700 dark:text-parchment-200">{d.creator.name}</span>
+      </p>
+
+      <ul class="flex flex-wrap justify-center gap-1.5">
+        {
+          d.topics.slice(0, 3).map((t: string) => (
+            <li class="rounded-md bg-parchment-200 px-2.5 py-1 text-sm text-ink-600 dark:bg-night-800 dark:text-parchment-300/75">
+              {topicLabel(t)}
+            </li>
+          ))
+        }
+      </ul>
+
+      {
+        d.status !== 'live' && (
+          <p class="flex items-center justify-center gap-1.5 text-sm text-crimson-700 dark:text-crimson-500">
+            <span aria-hidden="true">⚑</span>
+            {d.status === 'broken' ? 'الرابط معطّل — قيد الإصلاح' : 'قيد المراجعة والتوثيق'}
+          </p>
+        )
+      }
+    </div>
+  </div>
+</article>

@@ -1,0 +1,66 @@
+---
+import { site } from '../data/site';
+import { withBase } from '../lib/url';
+import { toArabicDigits } from '../data/taxonomy';
+
+const year = toArabicDigits(new Date().getFullYear());
+---
+
+<footer class="mt-24 border-t border-parchment-300/70 bg-parchment-200/40 dark:border-night-700 dark:bg-night-900/60">
+  <div class="mx-auto max-w-5xl px-4 py-16 text-center sm:px-6">
+    <h2 class="font-display text-3xl font-bold text-ink-900 dark:text-parchment-100">
+      {site.title}
+    </h2>
+
+    <div class="mt-4 flex items-center justify-center gap-3" aria-hidden="true">
+      <span class="h-px w-16 bg-gradient-to-l from-transparent to-gold-500/60"></span>
+      <span class="text-lg text-gold-600">◈</span>
+      <span class="h-px w-16 bg-gradient-to-r from-transparent to-gold-500/60"></span>
+    </div>
+
+    <p class="mx-auto mt-5 max-w-2xl text-lg leading-[1.95] text-ink-600 dark:text-parchment-300/75">
+      {site.description}
+    </p>
+
+    <div class="mt-12 grid gap-10 text-center sm:grid-cols-2">
+      <div>
+        <h3 class="text-base font-semibold tracking-[0.15em] text-teal-800 dark:text-teal-300">تنويه حقوقي</h3>
+        <p class="mx-auto mt-3 max-w-md leading-relaxed text-ink-600 dark:text-parchment-300/75">
+          هذا الموقع <strong class="font-semibold">دليلٌ للروابط</strong> ولا يستضيف أيّ مقاطع أو ملفات.
+          كلّ الحقوق محفوظة لأصحابها الأصليين، وتُعرض المواد عبر مشغّلات المنصّات نفسها مع نسبةٍ كاملة للمصدر.
+          إن كنت صاحب حقّ وتودّ إزالة إدراج، تواصل معنا وسنستجيب فوراً.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-base font-semibold tracking-[0.15em] text-teal-800 dark:text-teal-300">ساهم</h3>
+        <ul class="mt-3 space-y-2.5">
+          <li>
+            <button type="button" data-open-suggest class="text-ink-600 underline decoration-gold-500/60 underline-offset-4 transition hover:text-teal-700 dark:text-parchment-300/80 dark:hover:text-teal-300">
+              اقترح مصدراً جديداً
+            </button>
+          </li>
+          <li>
+            <button type="button" data-open-suggest data-mode="report" class="text-ink-600 underline decoration-crimson-500/60 underline-offset-4 transition hover:text-crimson-700 dark:text-parchment-300/80">
+              أبلغ عن رابط معطّل
+            </button>
+          </li>
+          <li>
+            <a href={withBase('/about')} class="text-ink-600 underline decoration-parchment-400 underline-offset-4 transition hover:text-teal-700 dark:text-parchment-300/80 dark:hover:text-teal-300">
+              منهجية الاختيار والتصنيف
+            </a>
+          </li>
+          <li>
+            <a href={site.repoUrl} target="_blank" rel="noopener noreferrer" class="text-ink-600 underline decoration-parchment-400 underline-offset-4 transition hover:text-teal-700 dark:text-parchment-300/80 dark:hover:text-teal-300">
+              المستودع على GitHub ↗
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="mt-12 border-t border-parchment-300/70 pt-6 text-base text-ink-500 dark:border-night-700 dark:text-parchment-300/50">
+      {site.title} — {year}م · بيانات الفهرسة تحت رخصة المشاع الإبداعي، وحقوق المواد المرتبطة لأصحابها.
+    </p>
+  </div>
+</footer>

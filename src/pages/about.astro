@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArchFrame from '../components/ArchFrame.astro';
+import SectionHead from '../components/SectionHead.astro';
+import OrnamentRule from '../components/OrnamentRule.astro';
+import engraving from '../assets/salahdin.jpg';
+import { FORMATS, TOPICS } from '../data/taxonomy';
+import { site } from '../data/site';
+
+const principles = [
+  {
+    t: 'نُحيل ولا نستضيف',
+    b: 'لا يُخزَّن على هذا الموقع أيّ فيديو أو ملف PDF. ما نملكه هو بطاقة فهرسة ورابط إلى المصدر الأصلي، فتبقى الحقوق كاملةً لأصحابها ويبقى الموقع خفيفاً ومجانيّ الاستضافة.',
+  },
+  {
+    t: 'التصنيف قبل الكمّ',
+    b: 'كل مادة تمرّ بمراجعة يدوية: تحديد النوع، والحقبة، والمواضيع، وكتابة ملخّص من سطرين. مادةٌ واحدة موصوفة جيداً أنفع من عشرٍ مكدّسة بلا وصف.',
+  },
+  {
+    t: 'المصادر الأوّلية أوّلاً',
+    b: 'نُعطي الأولوية لنصوص المعاصرين — ابن شدّاد والعماد الأصفهاني وابن الأثير — ثم للدراسات المحكّمة، ثم للمواد التعريفية والتبسيطية.',
+  },
+  {
+    t: 'مقاومة تعفّن الروابط',
+    b: 'يُفحص كل رابط دورياً. ما يسقط يُستبدل بأقرب نسخة أرشيفية، وما لم نجد له بديلاً يُوسم بوضوح بدل أن يُترك صامتاً.',
+  },
+];
+---
+
+<BaseLayout title="عن المشروع" description="منهجية الاختيار والتصنيف في أرشيف صلاح الدين الأيوبي.">
+  <div class="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-24">
+    <ArchFrame
+      src={engraving}
+      alt="نقشٌ أوروبي من القرن التاسع عشر يصوّر صلاح الدين واقفاً تحت قوسٍ مزخرف"
+      width={520}
+      class="mx-auto w-48 sm:w-60"
+    />
+
+    <h1 class="mt-10 font-display text-5xl leading-[1.45] font-bold text-ink-900 sm:text-6xl dark:text-parchment-50">
+      عن المشروع
+    </h1>
+
+    <OrnamentRule class="mt-6" />
+
+    <p class="mt-6 text-xl leading-[2] text-ink-700 dark:text-parchment-300/85">
+      {site.title} مكتبةٌ رقمية مفتوحة تجمع الروابط إلى ما نُشر عن صلاح الدين الأيوبي وعصره،
+      متفرّقاً بين منصّات الفيديو والمكتبات المرقمنة والدوريات الأكاديمية. الغاية أن يجد الباحث
+      والقارئ العام مدخلاً واحداً منظّماً بدل التنقيب في نتائج بحثٍ متضاربة.
+    </p>
+
+    <OrnamentRule class="my-16" />
+
+    <SectionHead title="مبادئ العمل" class="mb-12" />
+    <div class="space-y-12">
+      {
+        principles.map((p, i) => (
+          <div>
+            <span class="mx-auto grid size-12 place-items-center rounded-full border-2 border-gold-500/50 font-display text-xl font-bold text-gold-700 dark:text-gold-400">
+              {['١', '٢', '٣', '٤'][i]}
+            </span>
+            <h3 class="mt-5 font-display text-2xl leading-[1.5] font-bold text-ink-900 dark:text-parchment-100">
+              {p.t}
+            </h3>
+            <p class="mx-auto mt-3 max-w-xl text-lg leading-[1.95] text-ink-600 dark:text-parchment-300/80">
+              {p.b}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+
+    <OrnamentRule class="my-16" />
+
+    <SectionHead
+      title="مفردات التصنيف"
+      subtitle="يعتمد الفهرس مفرداتٍ مضبوطة لا تُضاف إليها قيمة إلا بقرار: هكذا تبقى المرشّحات ذات معنى ولا يتضخّم التصنيف بمترادفات."
+      class="mb-12"
+    />
+
+    <h3 class="text-base font-semibold tracking-[0.15em] text-teal-800 dark:text-teal-300">الأنواع</h3>
+    <ul class="mt-6 grid gap-3 sm:grid-cols-2">
+      {
+        FORMATS.map((f) => (
+          <li class="rounded-xl border border-parchment-300 px-5 py-4 dark:border-night-700">
+            <span class="text-lg font-semibold text-ink-900 dark:text-parchment-100">
+              <span aria-hidden="true" class="me-2 text-gold-600">{f.icon}</span>{f.label}
+            </span>
+            <span class="mt-1 block text-base text-ink-600 dark:text-parchment-300/70">{f.hint}</span>
+          </li>
+        ))
+      }
+    </ul>
+
+    <h3 class="mt-12 text-base font-semibold tracking-[0.15em] text-teal-800 dark:text-teal-300">المواضيع</h3>
+    <ul class="mt-6 flex flex-wrap justify-center gap-2.5">
+      {
+        TOPICS.map((t) => (
+          <li class="rounded-full bg-parchment-200 px-4 py-2 text-base text-ink-700 dark:bg-night-800 dark:text-parchment-300/85">
+            {t.label}
+          </li>
+        ))
+      }
+    </ul>
+
+    <OrnamentRule class="my-16" />
+
+    <SectionHead title="حقوق النشر" class="mb-8" />
+    <p class="mx-auto max-w-2xl text-lg leading-[1.95] text-ink-600 dark:text-parchment-300/80">
+      البيانات الببليوغرافية التي أنتجناها (العناوين الوصفية، الملخّصات، التصنيف) متاحة تحت رخصة
+      المشاع الإبداعي. أمّا المواد المُحال إليها فحقوقها لأصحابها كما هي مبيّنة في لوحة النسبة
+      داخل كل صفحة. إن كنت صاحب حقّ وترى أن إدراجاً ما يضرّك، راسِلنا وسنزيله دون نقاش.
+    </p>
+
+    <div class="mt-10 flex flex-wrap justify-center gap-4">
+      <button
+        type="button"
+        data-open-suggest
+        class="rounded-xl bg-teal-800 px-7 py-3.5 text-lg font-semibold text-parchment-50 shadow-[0_2px_4px_-1px_rgb(8_49_44/0.28),0_8px_20px_-6px_rgb(8_49_44/0.32)] transition duration-200 ease-[var(--ease-out-soft)] hover:bg-teal-700 active:translate-y-px dark:bg-teal-700 dark:hover:bg-teal-600"
+      >
+        اقترح مصدراً
+      </button>
+      <button
+        type="button"
+        data-open-suggest
+        data-mode="report"
+        class="rounded-xl border-2 border-crimson-500/40 px-7 py-3.5 text-lg font-medium text-crimson-700 transition duration-200 ease-[var(--ease-out-soft)] hover:bg-crimson-500/10 active:translate-y-px dark:text-crimson-500"
+      >
+        أبلغ عن رابط معطّل
+      </button>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,36 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  eyebrow?: string;
+  id?: string;
+  class?: string;
+}
+const { title, subtitle, eyebrow, id, class: klass = '' } = Astro.props;
+---
+
+<header class:list={['mx-auto max-w-3xl text-center', klass]}>
+  {
+    eyebrow && (
+      <p class="font-display text-base tracking-[0.2em] text-gold-700 dark:text-gold-400">{eyebrow}</p>
+    )
+  }
+
+  <h2 id={id} class="mt-2 font-display text-4xl font-bold text-ink-900 sm:text-5xl dark:text-parchment-50">
+    {title}
+  </h2>
+
+  <div class="mt-4 flex items-center justify-center gap-3" aria-hidden="true">
+    <span class="h-px w-16 bg-gradient-to-l from-transparent to-gold-500/60"></span>
+    <span class="text-lg text-gold-600">◈</span>
+    <span class="h-px w-16 bg-gradient-to-r from-transparent to-gold-500/60"></span>
+  </div>
+
+  {
+    subtitle && (
+      <p class="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-ink-600 dark:text-parchment-300/75">
+        {subtitle}
+      </p>
+    )
+  }
+</header>

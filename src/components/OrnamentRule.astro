@@ -1,0 +1,17 @@
+---
+interface Props {
+  class?: string;
+  /** حجم الفاصل: عادي أو مصغّر */
+  size?: 'md' | 'sm';
+}
+const { class: klass = '', size = 'md' } = Astro.props;
+
+const line = size === 'md' ? 'w-24 sm:w-32' : 'w-12';
+const glyph = size === 'md' ? 'text-xl' : 'text-sm';
+---
+
+<div class:list={['flex items-center justify-center gap-3', klass]} aria-hidden="true">
+  <span class:list={['h-px bg-gradient-to-l from-transparent to-gold-500/55', line]}></span>
+  <span class:list={['text-gold-600/85', glyph]}>◈</span>
+  <span class:list={['h-px bg-gradient-to-r from-transparent to-gold-500/55', line]}></span>
+</div>

@@ -1,0 +1,23 @@
+{
+  "name": "salah-elddin-archive",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "check:links": "node scripts/check-links.mjs"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.14",
+    "astro": "^5.14.1",
+    "fuse.js": "^7.1.0",
+    "tailwindcss": "^4.1.14"
+  },
+  "devDependencies": {
+    "puppeteer": "^25.7.0"
+  }
+}

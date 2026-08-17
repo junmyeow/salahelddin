@@ -1,0 +1,206 @@
+---
+import { site } from '../data/site';
+import { FORMATS } from '../data/taxonomy';
+
+const endpoint = site.formspreeId ? `https://formspree.io/f/${site.formspreeId}` : null;
+
+const field =
+  'w-full rounded-xl border border-parchment-300 bg-parchment-50 px-3.5 py-2.5 text-sm text-ink-900 ' +
+  'placeholder:text-ink-500/60 focus:border-teal-700 focus:outline-none ' +
+  'dark:border-night-700 dark:bg-night-950 dark:text-parchment-100 dark:placeholder:text-parchment-300/40';
+---
+
+<dialog
+  id="suggest-dialog"
+  class="m-auto w-[min(38rem,calc(100vw-2rem))] rounded-3xl border border-parchment-300 bg-parchment-100 p-0 text-ink-800 shadow-[var(--shadow-float)] backdrop:bg-ink-900/55 backdrop:backdrop-blur-sm dark:border-night-700 dark:bg-night-900 dark:text-parchment-200"
+>
+  <form method="dialog" class="absolute top-4 end-4">
+    <button
+      value="close"
+      aria-label="إغلاق"
+      class="grid size-9 place-items-center rounded-lg text-ink-500 transition hover:bg-parchment-200 hover:text-ink-900 dark:text-parchment-300/70 dark:hover:bg-night-800"
+    >
+      <svg viewBox="0 0 24 24" class="size-5" fill="none" stroke="currentColor" stroke-width="1.8">
+        <path d="m6 6 12 12M18 6 6 18" />
+      </svg>
+    </button>
+  </form>
+
+  <div class="p-6 sm:p-8">
+    <h2 id="suggest-title" class="font-display text-2xl font-bold text-ink-900 dark:text-parchment-100">
+      اقترح مصدراً
+    </h2>
+    <p id="suggest-sub" class="mt-2 text-sm leading-relaxed text-ink-600 dark:text-parchment-300/75">
+      نراجع كل اقتراح يدوياً قبل إدراجه، ونتحقّق من الرابط ومن نسبة المادة لصاحبها.
+    </p>
+
+    <div class="rule-diamond my-5"><span aria-hidden="true" class="text-xs">◈</span></div>
+
+    <form
+      id="suggest-form"
+      method="POST"
+      action={endpoint ?? undefined}
+      data-endpoint={endpoint ?? ''}
+      class="space-y-4"
+    >
+      {/* يتغيّر تلقائياً حسب الزر الذي فتح النافذة */}
+      <input type="hidden" name="_subject" id="suggest-subject" value="اقتراح مصدر جديد" />
+      <input type="hidden" name="kind" id="suggest-kind" value="suggestion" />
+      {/* مصيدة السبام */}
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+
+      <div>
+        <label for="s-url" class="mb-1.5 block text-sm font-medium">رابط المادة <span class="text-crimson-500">*</span></label>
+        <input id="s-url" name="url" type="url" required dir="ltr" placeholder="https://…" class={field} />
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div>
+          <label for="s-title" class="mb-1.5 block text-sm font-medium">العنوان</label>
+          <input id="s-title" name="title" type="text" placeholder="عنوان المادة" class={field} />
+        </div>
+        <div>
+          <label for="s-format" class="mb-1.5 block text-sm font-medium">النوع</label>
+          <select id="s-format" name="format" class={field}>
+            {FORMATS.map((f) => <option value={f.id}>{f.label}</option>)}
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label for="s-note" class="mb-1.5 block text-sm font-medium">
+          ملاحظات <span class="font-normal text-ink-500 dark:text-parchment-300/50">(لماذا تستحق الإدراج؟)</span>
+        </label>
+        <textarea id="s-note" name="note" rows="3" class={field} placeholder="سطران يكفيان…"></textarea>
+      </div>
+
+      <div>
+        <label for="s-email" class="mb-1.5 block text-sm font-medium">
+          بريدك <span class="font-normal text-ink-500 dark:text-parchment-300/50">(اختياري — للرد عليك)</span>
+        </label>
+        <input id="s-email" name="email" type="email" dir="ltr" placeholder="you@example.com" class={field} />
+      </div>
+
+      {
+        !endpoint && (
+          <p class="rounded-xl border border-gold-400/60 bg-gold-200/30 px-4 py-3 text-xs leading-relaxed text-ink-700 dark:border-gold-600/40 dark:bg-night-800 dark:text-parchment-300/80">
+            <strong class="font-semibold">لتفعيل الإرسال:</strong> أنشئ نموذجاً مجانياً على formspree.io
+            وضع معرّفه في <code dir="ltr" class="rounded bg-parchment-200 px-1 dark:bg-night-950">src/data/site.ts</code>
+            ضمن الحقل <code dir="ltr">formspreeId</code>.
+          </p>
+        )
+      }
+
+      <div class="flex items-center justify-end gap-3 pt-1">
+        <button
+          type="button"
+          data-close-suggest
+          class="rounded-xl px-4 py-2.5 text-sm text-ink-600 transition hover:bg-parchment-200 dark:text-parchment-300/80 dark:hover:bg-night-800"
+        >
+          إلغاء
+        </button>
+        <button
+          type="submit"
+          class="rounded-xl bg-teal-800 px-5 py-2.5 text-sm font-semibold text-parchment-50 shadow-[var(--shadow-teal)] transition duration-200 ease-[var(--ease-out-soft)] hover:bg-teal-700 active:translate-y-px disabled:opacity-50 dark:bg-teal-700 dark:hover:bg-teal-600"
+        >
+          إرسال
+        </button>
+      </div>
+
+      <p id="suggest-status" role="status" aria-live="polite" class="text-center text-sm"></p>
+    </form>
+  </div>
+</dialog>
+
+<script>
+  const dialog = document.getElementById('suggest-dialog') as HTMLDialogElement | null;
+  const form = document.getElementById('suggest-form') as HTMLFormElement | null;
+  const status = document.getElementById('suggest-status');
+  const title = document.getElementById('suggest-title');
+  const sub = document.getElementById('suggest-sub');
+  const subject = document.getElementById('suggest-subject') as HTMLInputElement | null;
+  const kind = document.getElementById('suggest-kind') as HTMLInputElement | null;
+
+  const COPY = {
+    suggestion: {
+      title: 'اقترح مصدراً',
+      sub: 'نراجع كل اقتراح يدوياً قبل إدراجه، ونتحقّق من الرابط ومن نسبة المادة لصاحبها.',
+      subject: 'اقتراح مصدر جديد',
+    },
+    report: {
+      title: 'أبلغ عن رابط معطّل',
+      sub: 'ضع رابط الصفحة التي لا تعمل وسنصلحها أو نستبدلها بأقرب نسخة أرشيفية.',
+      subject: 'بلاغ عن رابط معطّل',
+    },
+  } as const;
+
+  function open(mode: 'suggestion' | 'report', prefillUrl?: string) {
+    if (!dialog) return;
+    const copy = COPY[mode];
+    if (title) title.textContent = copy.title;
+    if (sub) sub.textContent = copy.sub;
+    if (subject) subject.value = copy.subject;
+    if (kind) kind.value = mode;
+    if (status) status.textContent = '';
+    if (prefillUrl) {
+      const urlField = document.getElementById('s-url') as HTMLInputElement | null;
+      if (urlField) urlField.value = prefillUrl;
+    }
+    dialog.showModal();
+  }
+
+  document.addEventListener('click', (e) => {
+    const trigger = (e.target as HTMLElement).closest<HTMLElement>('[data-open-suggest]');
+    if (trigger) {
+      e.preventDefault();
+      const mode = trigger.dataset.mode === 'report' ? 'report' : 'suggestion';
+      open(mode, trigger.dataset.url);
+      return;
+    }
+    if ((e.target as HTMLElement).closest('[data-close-suggest]')) dialog?.close();
+  });
+
+  // الإغلاق بالنقر على الخلفية
+  dialog?.addEventListener('click', (e) => {
+    if (e.target === dialog) dialog.close();
+  });
+
+  form?.addEventListener('submit', async (e) => {
+    const endpoint = form.dataset.endpoint;
+    if (!endpoint) {
+      e.preventDefault();
+      if (status) {
+        status.textContent = 'النموذج غير مفعّل بعد — راجع التعليمات أعلاه.';
+        status.className = 'text-center text-sm text-crimson-700 dark:text-crimson-500';
+      }
+      return;
+    }
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    btn.disabled = true;
+    if (status) {
+      status.textContent = 'جارٍ الإرسال…';
+      status.className = 'text-center text-sm text-ink-600 dark:text-parchment-300/70';
+    }
+    try {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      form.reset();
+      if (status) {
+        status.textContent = 'وصلنا اقتراحك — شكراً لك.';
+        status.className = 'text-center text-sm text-teal-700 dark:text-teal-300';
+      }
+    } catch {
+      if (status) {
+        status.textContent = 'تعذّر الإرسال. حاول مرة أخرى لاحقاً.';
+        status.className = 'text-center text-sm text-crimson-700 dark:text-crimson-500';
+      }
+    } finally {
+      btn.disabled = false;
+    }
+  });
+</script>

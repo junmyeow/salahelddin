@@ -1,0 +1,84 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SuggestModal from '../components/SuggestModal.astro';
+import { site } from '../data/site';
+import { withBase } from '../lib/url';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** عرض كامل بلا حاوية مركزية */
+  bare?: boolean;
+}
+
+const { title, description = site.description } = Astro.props;
+const pageTitle = title ? `${title} — ${site.shortTitle}` : `${site.title} — ${site.tagline}`;
+---
+
+<!doctype html>
+<html lang={site.lang} dir={site.dir} class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0d4740" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#14110d" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
+    <link rel="canonical" href={Astro.url.href} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.title} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content="ar_AR" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
+    />
+
+    {/* منع وميض الوضع الداكن: يُطبَّق قبل رسم الصفحة */}
+    <script is:inline>
+      (() => {
+        try {
+          const saved = localStorage.getItem('theme');
+          const dark = saved ? saved === 'dark'
+            : window.matchMedia('(prefers-color-scheme: dark)').matches;
+          document.documentElement.classList.toggle('dark', dark);
+        } catch {}
+      })();
+    </script>
+  </head>
+
+  <body class="parchment-grain min-h-dvh flex flex-col antialiased">
+    {/* قوسٌ مدبَّب يُستعمل قصّاً للصور — يُعرَّف مرّة ويُشار إليه بـ url(#arch-clip) */}
+    <svg width="0" height="0" class="absolute" aria-hidden="true" focusable="false">
+      <defs>
+        <clipPath id="arch-clip" clipPathUnits="objectBoundingBox">
+          <path d="M0,1 L0,0.40 C0,0.14 0.20,0 0.5,0 C0.80,0 1,0.14 1,0.40 L1,1 Z" />
+        </clipPath>
+      </defs>
+    </svg>
+
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:right-3 focus:z-50 focus:rounded-lg focus:bg-teal-800 focus:px-4 focus:py-2 focus:text-parchment-50"
+    >
+      تخطَّ إلى المحتوى
+    </a>
+
+    <Header />
+
+    <main id="main" class="flex-1">
+      <slot />
+    </main>
+
+    <Footer />
+    <SuggestModal />
+  </body>
+</html>

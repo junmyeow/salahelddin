@@ -1,0 +1,191 @@
+@import 'tailwindcss';
+
+/* الوضع الداكن يعتمد على صنف .dark على عنصر html */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* ——— الخطوط ——— */
+  --font-display: 'Amiri', 'Noto Naskh Arabic', 'Times New Roman', serif;
+  --font-body: 'IBM Plex Sans Arabic', 'Noto Sans Arabic', system-ui, sans-serif;
+
+  /* ——— لوحة الرَّق والمخطوط ——— */
+  --color-parchment-50: #fdfaf3;
+  --color-parchment-100: #f7f1e3;
+  --color-parchment-200: #efe5cf;
+  --color-parchment-300: #e2d3b4;
+  --color-parchment-400: #cdb98f;
+
+  --color-ink-900: #1d1712;
+  --color-ink-800: #2c231a;
+  --color-ink-700: #453729;
+  --color-ink-600: #6b5843;
+  --color-ink-500: #8c7659;
+
+  --color-teal-900: #08312c;
+  --color-teal-800: #0d4740;
+  --color-teal-700: #12645a;
+  --color-teal-600: #1a8375;
+  --color-teal-300: #6fb9ae;
+
+  --color-gold-700: #8f6a18;
+  --color-gold-600: #b0851f;
+  --color-gold-500: #c9a227;
+  --color-gold-400: #ddbe5c;
+  --color-gold-200: #f0deae;
+
+  --color-crimson-700: #7d2727;
+  --color-crimson-500: #a63a3a;
+
+  --color-night-950: #14110d;
+  --color-night-900: #1b1712;
+  --color-night-800: #262019;
+  --color-night-700: #342c22;
+
+  /* ——— حركات ——— */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /*
+    نظام العمق: ثلاث طبقات لا طبقة واحدة.
+    كل ظلّ مركَّب من طبقتين ومصبوغ بلون الحبر (لا رمادي محايد).
+  */
+  --shadow-base: 0 1px 2px rgb(45 35 26 / 0.06), 0 1px 1px rgb(45 35 26 / 0.04);
+  --shadow-raised: 0 2px 4px -1px rgb(45 35 26 / 0.08), 0 8px 18px -8px rgb(45 35 26 / 0.18);
+  --shadow-float: 0 4px 8px -2px rgb(45 35 26 / 0.12), 0 20px 40px -12px rgb(45 35 26 / 0.32);
+  --shadow-teal: 0 2px 4px -1px rgb(8 49 44 / 0.28), 0 8px 20px -6px rgb(8 49 44 / 0.32);
+  --shadow-gold: 0 2px 6px -1px rgb(143 106 24 / 0.22), 0 16px 32px -12px rgb(143 106 24 / 0.35);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    font-family: var(--font-body);
+    font-size: 1.125rem; /* ١٨px — العربية تحتاج حجماً أكبر من اللاتينية */
+    background-color: var(--color-parchment-100);
+    color: var(--color-ink-800);
+    font-feature-settings: 'kern', 'liga';
+    line-height: 1.95;
+  }
+
+  .dark body {
+    background-color: var(--color-night-950);
+    color: var(--color-parchment-200);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    line-height: 1.4;
+    font-weight: 700;
+  }
+
+  /* عناصر الواجهة ترث حجم النصّ بدل حجم المتصفّح الافتراضي */
+  input, select, textarea, button {
+    font-size: inherit;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold-500);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: var(--color-gold-200);
+    color: var(--color-ink-900);
+  }
+  .dark ::selection {
+    background: var(--color-teal-700);
+    color: var(--color-parchment-50);
+  }
+}
+
+@layer components {
+  /*
+    نسيج الرَّق: أربع تدرّجات شعاعية متراكبة + حبيبات مولّدة بمرشّح SVG.
+    الحبيبات تُعطي الورق عمقاً لا تعطيه الألوان المسطّحة.
+  */
+  .parchment-grain {
+    position: relative;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 12% 8%, rgb(201 162 39 / 0.09) 0, transparent 55%),
+      radial-gradient(ellipse 70% 60% at 88% 4%, rgb(18 100 90 / 0.08) 0, transparent 50%),
+      radial-gradient(ellipse 90% 40% at 50% 100%, rgb(143 106 24 / 0.06) 0, transparent 60%),
+      radial-gradient(circle at 70% 45%, rgb(125 39 39 / 0.03) 0, transparent 45%);
+  }
+  .dark .parchment-grain {
+    background-image:
+      radial-gradient(ellipse 80% 50% at 12% 8%, rgb(201 162 39 / 0.12) 0, transparent 55%),
+      radial-gradient(ellipse 70% 60% at 88% 4%, rgb(26 131 117 / 0.11) 0, transparent 50%),
+      radial-gradient(ellipse 90% 40% at 50% 100%, rgb(201 162 39 / 0.07) 0, transparent 60%),
+      radial-gradient(circle at 70% 45%, rgb(166 58 58 / 0.05) 0, transparent 45%);
+  }
+
+  /*
+    طبقة الحبيبات — feTurbulence مضمّنة، بلا أيّ طلب شبكة.
+    غطاءٌ ثابت فوق الصفحة: لا يلتقط النقر، ولا يؤثّر في ترتيب العناصر
+    (النوافذ المشروطة تُرسم في الطبقة العليا فتبقى فوقه).
+  */
+  .parchment-grain::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+    opacity: 0.14;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .dark .parchment-grain::after {
+    opacity: 0.08;
+    mix-blend-mode: screen;
+  }
+
+  @media (prefers-reduced-transparency: reduce) {
+    .parchment-grain::after { display: none; }
+  }
+
+  /* فاصل مزخرف على هيئة معيّن ذهبي */
+  .rule-diamond {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--color-gold-600);
+  }
+  .rule-diamond::before,
+  .rule-diamond::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+      to left,
+      transparent,
+      color-mix(in oklab, var(--color-gold-500) 55%, transparent),
+      transparent
+    );
+  }
+
+  /* شريط تمرير رفيع بلون الموقع */
+  .thin-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-parchment-400) transparent;
+  }
+  .dark .thin-scroll {
+    scrollbar-color: var(--color-night-700) transparent;
+  }
+
+  /* بطاقة مصدر مخفية بواسطة المرشّحات */
+  [data-card][hidden] { display: none !important; }
+}

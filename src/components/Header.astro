@@ -1,0 +1,96 @@
+---
+import { site } from '../data/site';
+import { withBase } from '../lib/url';
+
+const links = [
+  { href: withBase('/'), label: 'الدليل' },
+  { href: withBase('/#timeline'), label: 'الخط الزمني' },
+  { href: withBase('/about'), label: 'عن المشروع' },
+];
+
+const path = Astro.url.pathname.replace(/\/+$/, '') || '/';
+---
+
+<header
+  class="sticky top-0 z-40 border-b border-parchment-300/70 bg-parchment-50/85 backdrop-blur-md dark:border-night-700 dark:bg-night-950/85"
+>
+  {/* على الشاشات الضيّقة يلتفّ التنقّل إلى سطرٍ ثانٍ بدل أن يفيض خارج الإطار */}
+  <div class="mx-auto flex max-w-7xl flex-wrap items-center gap-x-4 gap-y-2 px-4 py-3 sm:flex-nowrap sm:px-6">
+    <a href={withBase('/')} class="group flex items-center gap-3">
+      <span
+        class="grid size-10 shrink-0 place-items-center rounded-lg bg-teal-800 text-gold-400 shadow-[var(--shadow-teal)] transition duration-200 ease-[var(--ease-out-soft)] group-hover:bg-teal-700 group-active:translate-y-px dark:bg-teal-700"
+        aria-hidden="true"
+      >
+        <svg viewBox="0 0 24 24" class="size-6" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M12 2.5 3.5 7v6.2c0 4.5 3.6 7.4 8.5 8.3 4.9-.9 8.5-3.8 8.5-8.3V7L12 2.5Z" />
+          <path d="M12 7.5 9.4 12l2.6 4.5 2.6-4.5L12 7.5Z" />
+        </svg>
+      </span>
+      <span class="leading-tight">
+        <span class="block font-display text-2xl font-bold text-ink-900 dark:text-parchment-100">
+          {site.shortTitle}
+        </span>
+        <span class="hidden text-sm text-ink-500 sm:block dark:text-parchment-300/70">
+          {site.tagline}
+        </span>
+      </span>
+    </a>
+
+    <nav
+      class="flex w-full flex-wrap items-center justify-center gap-1 sm:ms-auto sm:w-auto sm:justify-end"
+      aria-label="التنقّل الرئيسي"
+    >
+      {
+        links.map((l) => {
+          const target = l.href.split('#')[0].replace(/\/+$/, '') || '/';
+          const active = target === path && !l.href.includes('#');
+          return (
+            <a
+              href={l.href}
+              aria-current={active ? 'page' : undefined}
+              class:list={[
+                'rounded-lg px-4 py-2 text-base font-medium transition',
+                active
+                  ? 'bg-parchment-200 text-teal-800 dark:bg-night-800 dark:text-teal-300'
+                  : 'text-ink-600 hover:bg-parchment-200/70 hover:text-ink-900 dark:text-parchment-300/80 dark:hover:bg-night-800 dark:hover:text-parchment-100',
+              ]}
+            >
+              {l.label}
+            </a>
+          );
+        })
+      }
+
+      <button
+        type="button"
+        data-open-suggest
+        class="ms-1 hidden rounded-lg border border-gold-500/50 px-4 py-2 text-base font-medium text-gold-700 transition hover:bg-gold-500/10 sm:block dark:text-gold-400"
+      >
+        اقترح مصدراً
+      </button>
+
+      <button
+        type="button"
+        data-theme-toggle
+        aria-label="تبديل الوضع الداكن"
+        class="ms-1 grid size-9 place-items-center rounded-lg text-ink-600 transition hover:bg-parchment-200 dark:text-parchment-300 dark:hover:bg-night-800"
+      >
+        <svg class="size-5 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" />
+        </svg>
+        <svg class="hidden size-5 dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4" />
+        </svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const root = document.documentElement;
+  document.querySelector('[data-theme-toggle]')?.addEventListener('click', () => {
+    const dark = root.classList.toggle('dark');
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
+  });
+</script>
