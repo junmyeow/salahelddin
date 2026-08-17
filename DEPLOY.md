@@ -1,5 +1,29 @@
 # Deploying for free
 
+## Current deployment — live
+
+| | |
+|---|---|
+| **Live site** | <https://junmyeow.github.io/salahelddin/> |
+| **Repository** | <https://github.com/junmyeow/salahelddin> (public) |
+| **Host** | GitHub Pages, `build_type: workflow` |
+| **Pipeline** | [.github/workflows/deploy.yml](.github/workflows/deploy.yml) — builds and publishes on every push to `main` |
+| **Cost** | $0 |
+
+`site` and `base` in [astro.config.mjs](astro.config.mjs) are already set to
+`https://junmyeow.github.io` and `/salahelddin`.
+
+**To publish a change:** edit, commit, `git push`. That's it — the workflow rebuilds
+and redeploys in about a minute. Watch it in the repo's **Actions** tab.
+
+> Still outstanding: the suggestion form is inactive until you set `formspreeId`
+> (section D below).
+
+The rest of this document is reference — how the above was set up, and how to move
+to Vercel or a custom domain later.
+
+---
+
 The site is fully static (HTML + CSS + JS, no server, no database), so every
 static host will serve it on a free plan — no time limit, no credit card.
 
