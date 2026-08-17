@@ -127,7 +127,7 @@ const outboundLabel =
         <div class="mt-8">
           {
             d.embed ? (
-              <EmbedPlayer embed={d.embed} title={d.title} />
+              <EmbedPlayer embed={d.embed} title={d.title} poster={d.thumbnail?.src ?? null} />
             ) : (
               <Thumb
                 thumbnail={d.thumbnail}

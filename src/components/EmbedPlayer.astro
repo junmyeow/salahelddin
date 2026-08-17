@@ -1,21 +1,32 @@
 ---
 interface Props {
-  embed: { provider: 'youtube' | 'vimeo' | 'archive-org'; id: string; startAt?: number };
+  embed: {
+    provider: 'youtube' | 'youtube-playlist' | 'vimeo' | 'archive-org';
+    id: string;
+    startAt?: number;
+  };
   title: string;
+  /** مصغّرة صريحة — تلزم قوائم التشغيل لأنها لا تملك عنوان صورة مشتقّاً من معرّفها */
+  poster?: string | null;
 }
 
-const { embed, title } = Astro.props;
+const { embed, title, poster: posterProp = null } = Astro.props;
 const start = embed.startAt ?? 0;
 
 // youtube-nocookie: لا تُزرع كوكيز التتبّع قبل ضغط المستخدم على التشغيل
 const SRC: Record<string, string> = {
   youtube: `https://www.youtube-nocookie.com/embed/${embed.id}?rel=0&modestbranding=1${start ? `&start=${start}` : ''}`,
+  'youtube-playlist': `https://www.youtube-nocookie.com/embed/videoseries?list=${embed.id}&rel=0&modestbranding=1`,
   vimeo: `https://player.vimeo.com/video/${embed.id}?dnt=1`,
   'archive-org': `https://archive.org/embed/${embed.id}`,
 };
 const src = SRC[embed.provider];
 const poster =
-  embed.provider === 'youtube' ? `https://i.ytimg.com/vi/${embed.id}/maxresdefault.jpg` : null;
+  posterProp ??
+  (embed.provider === 'youtube' ? `https://i.ytimg.com/vi/${embed.id}/maxresdefault.jpg` : null);
+
+const isYouTube = embed.provider === 'youtube' || embed.provider === 'youtube-playlist';
+const providerLabel = isYouTube ? 'يوتيوب' : 'ڤيميو';
 
 // أرشيف الإنترنت يعرض قارئ كتب — نسبة عرض أطول
 const ratio = embed.provider === 'archive-org' ? 'aspect-[4/3]' : 'aspect-video';
@@ -62,7 +73,8 @@ const ratio = embed.provider === 'archive-org' ? 'aspect-[4/3]' : 'aspect-video'
         </span>
       </button>
       <p class="absolute bottom-3 start-3 rounded-lg bg-ink-900/75 px-2.5 py-1 text-xs text-parchment-100">
-        يُشغَّل من {embed.provider === 'youtube' ? 'يوتيوب' : 'ڤيميو'} — بضغطك فقط
+        {embed.provider === 'youtube-playlist' ? 'قائمة تشغيل تُفتح من ' : 'يُشغَّل من '}
+        {providerLabel} — بضغطك فقط
       </p>
     </div>
   )

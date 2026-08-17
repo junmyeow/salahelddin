@@ -33,7 +33,8 @@ const resources = defineCollection({
     externalUrl: z.string().url(),
     embed: z
       .object({
-        provider: z.enum(['youtube', 'vimeo', 'archive-org']),
+        // youtube-playlist: المعرّف هو معرّف قائمة التشغيل (PL…) لا معرّف مقطع
+        provider: z.enum(['youtube', 'youtube-playlist', 'vimeo', 'archive-org']),
         id: z.string(),
         startAt: z.number().int().nonnegative().default(0),
       })

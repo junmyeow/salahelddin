@@ -27,9 +27,7 @@ const TYPES = {
   '.ico': 'image/x-icon',
 };
 
-async function resolve(urlPath) {
-  // منع الخروج من مجلّد dist
-  const clean = normalize(decodeURIComponent(urlPath.split('?')[0])).replace(/^(\.\.[/\\])+/, '');
+async function tryFile(clean) {
   let file = join(ROOT, clean);
   try {
     if ((await stat(file)).isDirectory()) file = join(file, 'index.html');
@@ -45,6 +43,23 @@ async function resolve(urlPath) {
     }
     return null;
   }
+}
+
+async function resolve(urlPath) {
+  // منع الخروج من مجلّد dist
+  const clean = normalize(decodeURIComponent(urlPath.split('?')[0])).replace(/^(\.\.[/\\])+/, '');
+
+  const direct = await tryFile(clean);
+  if (direct) return direct;
+
+  /*
+    dist/ يُبنى بمسار أساسي (base) مثل /salahelddin، فتصل الطلبات مسبوقةً به
+    بينما نحن نخدم جذر dist. نُسقط المقطع الأوّل ونعيد المحاولة، فيعمل الخادم
+    المحلي مع base ومن دونه سواءً.
+  */
+  const stripped = clean.replace(/^[/\\][^/\\]+/, '') || '/';
+  if (stripped !== clean) return tryFile(stripped);
+  return null;
 }
 
 createServer(async (req, res) => {

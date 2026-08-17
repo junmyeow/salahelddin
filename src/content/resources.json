@@ -1,5 +1,52 @@
 [
   {
+    "id": "aljazeera-crusades-series",
+    "title": "الحروب الصليبية — سلسلة وثائقية",
+    "summary": "سلسلة الجزيرة الوثائقية عن الحروب الصليبية في ستة أجزاء، من بدايات الحملة الأولى إلى استعادة بيت المقدس. الجزء الثالث «الوحدة» مخصَّص لصلاح الدين الأيوبي وصناعة التحوّل التاريخي، والرابع «التطهير» لسؤال كيف ضاعت القدس ثم عادت.",
+    "format": "video",
+    "language": ["ar"],
+    "creator": {
+      "name": "الجزيرة الوثائقية",
+      "role": "إنتاج وثائقي",
+      "url": "https://www.youtube.com/@aljazeeradocumentary"
+    },
+    "publisher": {
+      "name": "يوتيوب",
+      "url": "https://youtube.com"
+    },
+    "sourcePlatform": "youtube",
+    "externalUrl": "https://www.youtube.com/playlist?list=PLmrET10kAE97RuC47XUMWxQ9BlXB_9QDB",
+    "embed": {
+      "provider": "youtube-playlist",
+      "id": "PLmrET10kAE97RuC47XUMWxQ9BlXB_9QDB",
+      "startAt": 0
+    },
+    "thumbnail": {
+      "src": "https://i.ytimg.com/vi/m3mjPiwd5tU/hqdefault.jpg",
+      "alt": "الحروب الصليبية — سلسلة الجزيرة الوثائقية",
+      "credit": "© الجزيرة الوثائقية"
+    },
+    "publishedDate": null,
+    "addedDate": "2026-08-17",
+    "historical": {
+      "startYear": 1095,
+      "endYear": 1192,
+      "eraId": "hattin-jerusalem"
+    },
+    "topics": ["crusades", "military-campaigns", "jerusalem", "biography"],
+    "tags": ["الجزيرة الوثائقية", "سلسلة", "ستة أجزاء", "حطين", "بيت المقدس"],
+    "rights": {
+      "license": "standard-youtube",
+      "attributionNote": "تُعرض عبر مشغّل يوتيوب — كل الحقوق للجزيرة الوثائقية"
+    },
+    "duration": null,
+    "pageCount": null,
+    "curatorScore": 95,
+    "featured": true,
+    "status": "live",
+    "lastChecked": "2026-08-17"
+  },
+  {
     "id": "ibn-shaddad-nawadir",
     "title": "النوادر السلطانية والمحاسن اليوسفية",
     "summary": "سيرة صلاح الدين بقلم قاضي عسكره وملازمه في سنواته الأخيرة. أهمّ مصدر أوّلي عن شخصيته وسياسته وتفاصيل الحملة الصليبية الثالثة، بشهادة شاهد عيان لازمه حتى وفاته.",
