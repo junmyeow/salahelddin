@@ -1,79 +1,260 @@
 [
   {
-    "id": "shaddad-nawadir-sultaniyya",
+    "id": "ibn-shaddad-nawadir",
     "title": "النوادر السلطانية والمحاسن اليوسفية",
-    "titleAlt": "The Rare and Excellent History of Saladin",
-    "summary": "سيرة كتبها بهاء الدين بن شدّاد، قاضي العسكر وملازم صلاح الدين في سنواته الأخيرة. أهمّ مصدر أوّلي عن شخصيته وأخلاقه وتفاصيل الحملة الصليبية الثالثة، بشهادة شاهد عيان.",
+    "summary": "سيرة صلاح الدين بقلم قاضي عسكره وملازمه في سنواته الأخيرة. أهمّ مصدر أوّلي عن شخصيته وسياسته وتفاصيل الحملة الصليبية الثالثة، بشهادة شاهد عيان لازمه حتى وفاته.",
     "format": "primary-source",
-    "language": ["ar"],
-    "creator": { "name": "بهاء الدين بن شدّاد", "role": "قاضٍ ومؤرّخ معاصر (٥٣٩–٦٣٢هـ)" },
-    "publisher": { "name": "أرشيف الإنترنت", "url": "https://archive.org" },
+    "language": [
+      "ar"
+    ],
+    "creator": {
+      "name": "بهاء الدين بن شدّاد",
+      "role": "قاضي العسكر ومؤرّخ معاصر (٥٣٩–٦٣٢هـ)"
+    },
+    "publisher": {
+      "name": "أرشيف الإنترنت",
+      "url": "https://archive.org"
+    },
     "sourcePlatform": "archive-org",
-    "externalUrl": "https://archive.org/search?query=%D8%A7%D9%84%D9%86%D9%88%D8%A7%D8%AF%D8%B1+%D8%A7%D9%84%D8%B3%D9%84%D8%B7%D8%A7%D9%86%D9%8A%D8%A9",
-    "embed": null,
+    "externalUrl": "https://archive.org/details/FeySiratSalahAlDeenAlAyoubi",
+    "embed": {
+      "provider": "archive-org",
+      "id": "FeySiratSalahAlDeenAlAyoubi",
+      "startAt": 0
+    },
     "thumbnail": null,
-    "publishedDate": "1193",
-    "addedDate": "2026-08-16",
-    "historical": { "startYear": 1187, "endYear": 1193, "eraId": "third-crusade" },
-    "topics": ["biography", "chronicles", "crusades"],
-    "tags": ["ابن شداد", "مصدر معاصر", "شاهد عيان"],
-    "rights": { "license": "public-domain", "attributionNote": "نصّ تراثي في الملك العام" },
+    "publishedDate": null,
+    "addedDate": "2026-08-17",
+    "historical": {
+      "startYear": 1187,
+      "endYear": 1193,
+      "eraId": "third-crusade"
+    },
+    "topics": [
+      "biography",
+      "chronicles",
+      "crusades"
+    ],
+    "tags": [
+      "ابن شداد",
+      "مصدر معاصر",
+      "شاهد عيان"
+    ],
+    "rights": {
+      "license": "public-domain",
+      "attributionNote": "نصّ تراثي — النسخة المرقمنة متاحة للتحميل"
+    },
     "duration": null,
-    "pageCount": 320,
+    "pageCount": 430,
     "curatorScore": 98,
     "featured": true,
-    "status": "pending-review",
-    "lastChecked": null
+    "status": "live",
+    "lastChecked": "2026-08-17"
   },
   {
     "id": "imad-fath-qussi",
-    "title": "الفتح القُسّي في الفتح القُدسي",
-    "summary": "تأريخ العماد الأصفهاني، كاتب ديوان الإنشاء لدى صلاح الدين، لوقائع حطّين وفتح بيت المقدس بأسلوب إنشائي مسجوع. وثيقة إدارية وأدبية من داخل البلاط الأيوبي.",
+    "title": "كتاب الفتح القُسّي في الفتح القُدسي",
+    "summary": "تأريخ العماد الأصفهاني، كاتب ديوان الإنشاء لدى صلاح الدين، لوقائع حطّين وفتح بيت المقدس بأسلوب إنشائي مسجوع. وثيقة من داخل البلاط الأيوبي كتبها من حضر الأحداث.",
     "format": "primary-source",
-    "language": ["ar"],
-    "creator": { "name": "العماد الأصفهاني", "role": "كاتب ديوان الإنشاء" },
-    "publisher": { "name": "أرشيف الإنترنت", "url": "https://archive.org" },
+    "language": [
+      "ar"
+    ],
+    "creator": {
+      "name": "العماد الأصفهاني",
+      "role": "كاتب ديوان الإنشاء (٥١٩–٥٩٧هـ)"
+    },
+    "publisher": {
+      "name": "أرشيف الإنترنت",
+      "url": "https://archive.org"
+    },
     "sourcePlatform": "archive-org",
-    "externalUrl": "https://archive.org/search?query=%D8%A7%D9%84%D9%81%D8%AA%D8%AD+%D8%A7%D9%84%D9%82%D8%B3%D9%8A+%D9%81%D9%8A+%D8%A7%D9%84%D9%81%D8%AA%D8%AD+%D8%A7%D9%84%D9%82%D8%AF%D8%B3%D9%8A",
-    "embed": null,
+    "externalUrl": "https://archive.org/details/KitabAlFathAlQosey",
+    "embed": {
+      "provider": "archive-org",
+      "id": "KitabAlFathAlQosey",
+      "startAt": 0
+    },
     "thumbnail": null,
-    "publishedDate": "1192",
-    "addedDate": "2026-08-16",
-    "historical": { "startYear": 1187, "endYear": 1188, "eraId": "hattin-jerusalem" },
-    "topics": ["jerusalem", "chronicles", "military-campaigns"],
-    "tags": ["العماد الأصفهاني", "حطين", "فتح القدس"],
-    "rights": { "license": "public-domain" },
+    "publishedDate": "1904",
+    "addedDate": "2026-08-17",
+    "historical": {
+      "startYear": 1187,
+      "endYear": 1188,
+      "eraId": "hattin-jerusalem"
+    },
+    "topics": [
+      "jerusalem",
+      "chronicles",
+      "military-campaigns"
+    ],
+    "tags": [
+      "العماد الأصفهاني",
+      "حطين",
+      "فتح القدس"
+    ],
+    "rights": {
+      "license": "public-domain"
+    },
     "duration": null,
-    "pageCount": 460,
-    "curatorScore": 92,
+    "pageCount": 372,
+    "curatorScore": 94,
     "featured": true,
-    "status": "pending-review",
-    "lastChecked": null
+    "status": "live",
+    "lastChecked": "2026-08-17"
+  },
+  {
+    "id": "landberg-fath-qussi-1888",
+    "title": "Conquête de la Syrie et de la Palestine par Ṣalâh ed-dîn",
+    "titleAlt": "طبعة لاندبرغ النقدية للفتح القُسّي (١٨٨٨م)",
+    "summary": "الطبعة النقدية الأولى للنصّ العربي للفتح القسي، حقّقها كارلو لاندبرغ ونشرها في ليدن سنة ١٨٨٨م. تفيد الباحث في مقابلة النصّ بالطبعات المتأخّرة.",
+    "format": "primary-source",
+    "language": [
+      "ar"
+    ],
+    "creator": {
+      "name": "العماد الأصفهاني — تحقيق كارلو لاندبرغ",
+      "role": "نصّ محقَّق"
+    },
+    "publisher": {
+      "name": "E. J. Brill, Leiden",
+      "url": "https://archive.org"
+    },
+    "sourcePlatform": "archive-org",
+    "externalUrl": "https://archive.org/details/conqutedelasyr00imda",
+    "embed": {
+      "provider": "archive-org",
+      "id": "conqutedelasyr00imda",
+      "startAt": 0
+    },
+    "thumbnail": null,
+    "publishedDate": "1888",
+    "addedDate": "2026-08-17",
+    "historical": {
+      "startYear": 1187,
+      "endYear": 1188,
+      "eraId": "hattin-jerusalem"
+    },
+    "topics": [
+      "chronicles",
+      "jerusalem"
+    ],
+    "tags": [
+      "تحقيق",
+      "ليدن",
+      "نصّ عربي"
+    ],
+    "rights": {
+      "license": "public-domain"
+    },
+    "duration": null,
+    "pageCount": 544,
+    "curatorScore": 80,
+    "featured": false,
+    "status": "live",
+    "lastChecked": "2026-08-17"
   },
   {
     "id": "ibn-alathir-kamil",
-    "title": "الكامل في التاريخ — أحداث ٥٦٤–٥٨٩هـ",
-    "summary": "الأجزاء المتعلقة بصلاح الدين من موسوعة ابن الأثير التاريخية. مصدر أوّلي مهم لأنه يكتب من منظور موصلي زنكي، فيقدّم رواية نقدية موازنة لسِيَر البلاط الأيوبي.",
+    "title": "الكامل في التاريخ",
+    "summary": "موسوعة ابن الأثير التاريخية. مصدر أوّلي مهمّ لأنه يكتب من منظور موصلي زنكي، فيقدّم رواية نقدية موازنة لسِيَر البلاط الأيوبي التي كتبها المقرّبون من صلاح الدين.",
     "format": "primary-source",
-    "language": ["ar"],
-    "creator": { "name": "ابن الأثير الجزري", "role": "مؤرّخ (٥٥٥–٦٣٠هـ)" },
-    "publisher": { "name": "أرشيف الإنترنت", "url": "https://archive.org" },
+    "language": [
+      "ar"
+    ],
+    "creator": {
+      "name": "ابن الأثير الجزري",
+      "role": "مؤرّخ (٥٥٥–٦٣٠هـ)"
+    },
+    "publisher": {
+      "name": "أرشيف الإنترنت",
+      "url": "https://archive.org"
+    },
     "sourcePlatform": "archive-org",
-    "externalUrl": "https://archive.org/search?query=%D8%A7%D9%84%D9%83%D8%A7%D9%85%D9%84+%D9%81%D9%8A+%D8%A7%D9%84%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE+%D8%A7%D8%A8%D9%86+%D8%A7%D9%84%D8%A3%D8%AB%D9%8A%D8%B1",
-    "embed": null,
+    "externalUrl": "https://archive.org/details/Alkamil_Fi_Tarikh",
+    "embed": {
+      "provider": "archive-org",
+      "id": "Alkamil_Fi_Tarikh",
+      "startAt": 0
+    },
     "thumbnail": null,
-    "publishedDate": "1231",
+    "publishedDate": null,
     "addedDate": "2026-08-16",
-    "historical": { "startYear": 1169, "endYear": 1193, "eraId": "unification" },
-    "topics": ["chronicles", "state-administration", "military-campaigns"],
-    "tags": ["ابن الأثير", "الرواية الزنكية", "نقد المصادر"],
-    "rights": { "license": "public-domain" },
+    "historical": {
+      "startYear": 1169,
+      "endYear": 1193,
+      "eraId": "unification"
+    },
+    "topics": [
+      "chronicles",
+      "state-administration",
+      "military-campaigns"
+    ],
+    "tags": [
+      "ابن الأثير",
+      "الرواية الزنكية",
+      "نقد المصادر"
+    ],
+    "rights": {
+      "license": "public-domain"
+    },
     "duration": null,
-    "pageCount": 620,
+    "pageCount": null,
     "curatorScore": 90,
     "featured": false,
-    "status": "pending-review",
-    "lastChecked": null
+    "status": "live",
+    "lastChecked": "2026-08-17"
+  },
+  {
+    "id": "conder-life-of-saladin",
+    "title": "The Life of Saladin",
+    "titleAlt": "ترجمة إنجليزية لسيرة ابن شدّاد (١٨٩٧م)",
+    "summary": "الترجمة الإنجليزية لسيرة بهاء الدين بن شدّاد، صدرت ضمن سلسلة جمعية نصوص الحجّاج إلى فلسطين. تتيح مقابلة النصّ العربي بأقدم نقلٍ إنجليزي وافٍ له.",
+    "format": "primary-source",
+    "language": [
+      "en"
+    ],
+    "creator": {
+      "name": "Claude Reignier Conder",
+      "role": "مترجم — عن بهاء الدين بن شدّاد"
+    },
+    "publisher": {
+      "name": "Palestine Pilgrims’ Text Society",
+      "url": "https://archive.org"
+    },
+    "sourcePlatform": "archive-org",
+    "externalUrl": "https://archive.org/details/lifesaladin00condgoog",
+    "embed": {
+      "provider": "archive-org",
+      "id": "lifesaladin00condgoog",
+      "startAt": 0
+    },
+    "thumbnail": null,
+    "publishedDate": "1897",
+    "addedDate": "2026-08-16",
+    "historical": {
+      "startYear": 1187,
+      "endYear": 1193,
+      "eraId": "third-crusade"
+    },
+    "topics": [
+      "biography",
+      "chronicles",
+      "crusades"
+    ],
+    "tags": [
+      "ترجمة",
+      "ابن شداد",
+      "PPTS"
+    ],
+    "rights": {
+      "license": "public-domain"
+    },
+    "duration": null,
+    "pageCount": 459,
+    "curatorScore": 86,
+    "featured": false,
+    "status": "live",
+    "lastChecked": "2026-08-17"
   },
   {
     "id": "lane-poole-saladin",
@@ -81,275 +262,384 @@
     "titleAlt": "صلاح الدين وسقوط مملكة بيت المقدس",
     "summary": "دراسة ستانلي لين-بول الكلاسيكية (١٨٩٨م) المعتمدة على ابن شدّاد والعماد الأصفهاني. أقدم سيرة إنجليزية وافية، وهي في الملك العام ومتاحة بالكامل للتحميل.",
     "format": "book",
-    "language": ["en"],
-    "creator": { "name": "Stanley Lane-Poole", "role": "مستشرق ومؤرّخ" },
-    "publisher": { "name": "G. P. Putnam's Sons", "url": "https://archive.org" },
+    "language": [
+      "en"
+    ],
+    "creator": {
+      "name": "Stanley Lane-Poole",
+      "role": "مستشرق ومؤرّخ (١٨٥٤–١٩٣١)"
+    },
+    "publisher": {
+      "name": "G. P. Putnam’s Sons",
+      "url": "https://archive.org"
+    },
     "sourcePlatform": "archive-org",
     "externalUrl": "https://archive.org/details/saladinfallofkin00lane",
-    "embed": { "provider": "archive-org", "id": "saladinfallofkin00lane", "startAt": 0 },
+    "embed": {
+      "provider": "archive-org",
+      "id": "saladinfallofkin00lane",
+      "startAt": 0
+    },
     "thumbnail": null,
     "publishedDate": "1898",
-    "addedDate": "2026-08-15",
-    "historical": { "startYear": 1137, "endYear": 1193, "eraId": "hattin-jerusalem" },
-    "topics": ["biography", "crusades", "jerusalem"],
-    "tags": ["استشراق", "ملك عام", "سيرة"],
-    "rights": { "license": "public-domain", "attributionNote": "نُشر قبل ١٩٢٩م — في الملك العام" },
-    "duration": null,
-    "pageCount": 428,
-    "curatorScore": 85,
-    "featured": true,
-    "status": "pending-review",
-    "lastChecked": null
-  },
-  {
-    "id": "jazeera-doc-salahuddin",
-    "title": "وثائقي: صلاح الدين الأيوبي — من تكريت إلى بيت المقدس",
-    "summary": "فيلم وثائقي يتتبّع مسار صلاح الدين من نشأته في العراق والشام إلى توحيد الجبهة الإسلامية وفتح بيت المقدس، بمشاركة مؤرّخين ومشاهد من مواقع الأحداث.",
-    "format": "video",
-    "language": ["ar"],
-    "creator": { "name": "قناة الجزيرة الوثائقية", "role": "إنتاج", "url": "https://www.youtube.com/@aljazeeradocumentary" },
-    "publisher": { "name": "يوتيوب", "url": "https://youtube.com" },
-    "sourcePlatform": "youtube",
-    "externalUrl": "https://www.youtube.com/results?search_query=%D8%A7%D9%84%D8%AC%D8%B2%D9%8A%D8%B1%D8%A9+%D8%A7%D9%84%D9%88%D8%AB%D8%A7%D8%A6%D9%82%D9%8A%D8%A9+%D8%B5%D9%84%D8%A7%D8%AD+%D8%A7%D9%84%D8%AF%D9%8A%D9%86",
-    "embed": null,
-    "thumbnail": null,
-    "publishedDate": "2020",
     "addedDate": "2026-08-16",
-    "historical": { "startYear": 1137, "endYear": 1193, "eraId": "origins" },
-    "topics": ["biography", "military-campaigns", "jerusalem"],
-    "tags": ["وثائقي", "الجزيرة"],
-    "rights": { "license": "standard-youtube" },
-    "duration": 48,
-    "pageCount": null,
-    "curatorScore": 80,
-    "featured": false,
-    "status": "pending-review",
-    "lastChecked": null
-  },
-  {
-    "id": "kg-battle-of-hattin",
-    "title": "Battle of Hattin 1187 — Crusades Documentary",
-    "titleAlt": "معركة حطّين ١١٨٧ — وثائقي مصوّر",
-    "summary": "وثائقي رسومي يشرح تكتيك حطّين خطوة بخطوة: قطع الماء عن الجيش الصليبي، وحصاره في هضبة قرني حطّين، وأسر ملك بيت المقدس. مرجع بصري ممتاز لفهم المعركة.",
-    "format": "video",
-    "language": ["en"],
-    "creator": { "name": "Kings and Generals", "role": "قناة وثائقية", "url": "https://www.youtube.com/@KingsandGenerals" },
-    "publisher": { "name": "يوتيوب", "url": "https://youtube.com" },
-    "sourcePlatform": "youtube",
-    "externalUrl": "https://www.youtube.com/results?search_query=kings+and+generals+battle+of+hattin",
-    "embed": null,
-    "thumbnail": null,
-    "publishedDate": "2019",
-    "addedDate": "2026-08-14",
-    "historical": { "startYear": 1187, "endYear": 1187, "eraId": "hattin-jerusalem" },
-    "topics": ["military-campaigns", "crusades"],
-    "tags": ["حطين", "تكتيك عسكري", "خرائط متحركة"],
-    "rights": { "license": "standard-youtube" },
-    "duration": 22,
-    "pageCount": null,
+    "historical": {
+      "startYear": 1137,
+      "endYear": 1193,
+      "eraId": "hattin-jerusalem"
+    },
+    "topics": [
+      "biography",
+      "crusades",
+      "jerusalem"
+    ],
+    "tags": [
+      "استشراق",
+      "ملك عام",
+      "سيرة"
+    ],
+    "rights": {
+      "license": "public-domain",
+      "attributionNote": "نُشر قبل ١٩٢٩م — في الملك العام"
+    },
+    "duration": null,
+    "pageCount": 536,
     "curatorScore": 88,
     "featured": true,
-    "status": "pending-review",
-    "lastChecked": null
+    "status": "live",
+    "lastChecked": "2026-08-17"
   },
   {
-    "id": "wikisource-treaty-ramla",
-    "title": "نصوص صلح الرملة ١١٩٢م",
-    "summary": "مقتطفات من نصوص المعاهدة التي أنهت الحملة الصليبية الثالثة، وضمنت بقاء بيت المقدس تحت الحكم الأيوبي مع حق الحجّاج المسيحيين في الزيارة الآمنة لمدة ثلاث سنوات.",
-    "format": "primary-source",
-    "language": ["ar", "en"],
-    "creator": { "name": "مصادر معاصرة مجمّعة", "role": "تحرير" },
-    "publisher": { "name": "ويكي مصدر", "url": "https://ar.wikisource.org" },
-    "sourcePlatform": "wikisource",
-    "externalUrl": "https://ar.wikisource.org/wiki/%D8%A7%D9%84%D8%B5%D9%81%D8%AD%D8%A9_%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3%D8%A9",
-    "embed": null,
+    "id": "besant-jerusalem-herod-saladin",
+    "title": "Jerusalem: The City of Herod and Saladin",
+    "summary": "تاريخ مدينة بيت المقدس من هيرودس إلى الفتح الأيوبي، بقلم والتر بيزنت وإدوارد بالمر. يفيد في فهم المدينة التي دخلها صلاح الدين سنة ١١٨٧م: عمرانها وسكّانها وأسوارها.",
+    "format": "book",
+    "language": [
+      "en"
+    ],
+    "creator": {
+      "name": "Walter Besant & Edward Henry Palmer",
+      "role": "مؤرّخان"
+    },
+    "publisher": {
+      "name": "Richard Bentley & Son",
+      "url": "https://archive.org"
+    },
+    "sourcePlatform": "archive-org",
+    "externalUrl": "https://archive.org/details/jerusalemcityofh00besarich",
+    "embed": {
+      "provider": "archive-org",
+      "id": "jerusalemcityofh00besarich",
+      "startAt": 0
+    },
     "thumbnail": null,
-    "publishedDate": "1192",
-    "addedDate": "2026-08-13",
-    "historical": { "startYear": 1192, "endYear": 1192, "eraId": "third-crusade" },
-    "topics": ["diplomacy", "jerusalem", "crusades"],
-    "tags": ["معاهدة", "ريتشارد قلب الأسد", "الرملة"],
-    "rights": { "license": "CC BY-SA 4.0" },
+    "publishedDate": "1871",
+    "addedDate": "2026-08-15",
+    "historical": {
+      "startYear": 1187,
+      "endYear": 1188,
+      "eraId": "hattin-jerusalem"
+    },
+    "topics": [
+      "jerusalem",
+      "architecture"
+    ],
+    "tags": [
+      "بيت المقدس",
+      "عمران",
+      "ملك عام"
+    ],
+    "rights": {
+      "license": "public-domain"
+    },
     "duration": null,
-    "pageCount": null,
-    "curatorScore": 75,
+    "pageCount": 516,
+    "curatorScore": 74,
     "featured": false,
-    "status": "pending-review",
-    "lastChecked": null
+    "status": "live",
+    "lastChecked": "2026-08-17"
   },
   {
-    "id": "citadel-cairo-architecture",
-    "title": "قلعة صلاح الدين بالقاهرة: العمارة الحربية الأيوبية",
-    "summary": "دراسة معمارية للقلعة التي بدأ بناءها صلاح الدين سنة ١١٧٦م على مقطم القاهرة، وتحليل لنظام الأسوار والأبراج والبئر الحلزوني الذي نُحت في الصخر.",
-    "format": "article",
-    "language": ["ar"],
-    "creator": { "name": "وزارة السياحة والآثار المصرية", "role": "جهة رسمية" },
-    "publisher": { "name": "موقع رسمي", "url": "https://egymonuments.gov.eg" },
-    "sourcePlatform": "web",
-    "externalUrl": "https://egymonuments.gov.eg/monuments/salah-el-din-citadel/",
-    "embed": null,
+    "id": "scott-talisman-ar",
+    "title": "الطلسم",
+    "titleAlt": "The Talisman — Walter Scott",
+    "summary": "رواية والتر سكوت (١٨٢٥م) في ترجمتها العربية. هي النصّ الذي رسّخ صورة صلاح الدين الفارس النبيل في المخيال الأوروبي، فيُقرأ اليوم لا كتاريخ بل كوثيقة على تشكّل تلك الصورة.",
+    "format": "story",
+    "language": [
+      "ar"
+    ],
+    "creator": {
+      "name": "والتر سكوت",
+      "role": "روائي (١٧٧١–١٨٣٢)"
+    },
+    "publisher": {
+      "name": "أرشيف الإنترنت",
+      "url": "https://archive.org"
+    },
+    "sourcePlatform": "archive-org",
+    "externalUrl": "https://archive.org/details/talsam",
+    "embed": {
+      "provider": "archive-org",
+      "id": "talsam",
+      "startAt": 0
+    },
     "thumbnail": null,
-    "publishedDate": "2021",
-    "addedDate": "2026-08-12",
-    "historical": { "startYear": 1176, "endYear": 1183, "eraId": "unification" },
-    "topics": ["architecture", "state-administration"],
-    "tags": ["القلعة", "القاهرة", "عمارة حربية"],
-    "rights": { "license": "all-rights-reserved" },
+    "publishedDate": null,
+    "addedDate": "2026-08-15",
+    "historical": {
+      "startYear": 1193,
+      "endYear": 1260,
+      "eraId": "death-legacy"
+    },
+    "topics": [
+      "legacy",
+      "crusades"
+    ],
+    "tags": [
+      "والتر سكوت",
+      "الرواية",
+      "الفروسية"
+    ],
+    "rights": {
+      "license": "public-domain",
+      "attributionNote": "الأصل الإنجليزي (١٨٢٥م) في الملك العام"
+    },
     "duration": null,
     "pageCount": null,
     "curatorScore": 70,
     "featured": false,
-    "status": "pending-review",
-    "lastChecked": null
+    "status": "live",
+    "lastChecked": "2026-08-17"
   },
   {
-    "id": "story-fath-al-quds-youth",
-    "title": "قصة فتح بيت المقدس — للناشئة",
-    "summary": "سرد قصصي مبسّط لأحداث سنة ١١٨٧م موجّه لطلاب المرحلة الإعدادية، يركّز على قيم الوفاء بالعهد وأمان أهل المدينة بعد الفتح، مع رسوم توضيحية.",
-    "format": "story",
-    "language": ["ar"],
-    "creator": { "name": "مكتبة الطفل العربي", "role": "تحرير وإعداد" },
-    "publisher": { "name": "أرشيف الإنترنت", "url": "https://archive.org" },
-    "sourcePlatform": "archive-org",
-    "externalUrl": "https://archive.org/search?query=%D9%82%D8%B5%D8%A9+%D8%B5%D9%84%D8%A7%D8%AD+%D8%A7%D9%84%D8%AF%D9%8A%D9%86+%D9%84%D9%84%D8%A3%D8%B7%D9%81%D8%A7%D9%84",
-    "embed": null,
-    "thumbnail": null,
-    "publishedDate": "2015",
-    "addedDate": "2026-08-11",
-    "historical": { "startYear": 1187, "endYear": 1187, "eraId": "hattin-jerusalem" },
-    "topics": ["jerusalem", "legacy"],
-    "tags": ["للناشئة", "قصة مصوّرة", "تربوي"],
-    "rights": { "license": "all-rights-reserved" },
-    "duration": null,
-    "pageCount": 48,
-    "curatorScore": 60,
-    "featured": false,
-    "status": "pending-review",
-    "lastChecked": null
-  },
-  {
-    "id": "podcast-ayyubid-state",
-    "title": "بودكاست: كيف بُنيت الدولة الأيوبية؟",
-    "summary": "حلقة صوتية تناقش البنية الإدارية والاقتصادية للدولة الأيوبية: نظام الإقطاع العسكري، والمدارس السنّية، وإصلاح دار الضرب، وكيف موّلت هذه الأدوات الحملات العسكرية.",
-    "format": "audio",
-    "language": ["ar"],
-    "creator": { "name": "بودكاست التاريخ الإسلامي", "role": "إنتاج صوتي" },
-    "publisher": { "name": "أرشيف الإنترنت", "url": "https://archive.org" },
-    "sourcePlatform": "archive-org",
-    "externalUrl": "https://archive.org/search?query=%D8%A7%D9%84%D8%AF%D9%88%D9%84%D8%A9+%D8%A7%D9%84%D8%A3%D9%8A%D9%88%D8%A8%D9%8A%D8%A9",
-    "embed": null,
-    "thumbnail": null,
-    "publishedDate": "2023",
-    "addedDate": "2026-08-10",
-    "historical": { "startYear": 1174, "endYear": 1186, "eraId": "unification" },
-    "topics": ["state-administration", "diplomacy"],
-    "tags": ["بودكاست", "الإقطاع", "اقتصاد"],
-    "rights": { "license": "CC BY 4.0" },
-    "duration": 54,
-    "pageCount": null,
-    "curatorScore": 65,
-    "featured": false,
-    "status": "pending-review",
-    "lastChecked": null
-  },
-  {
-    "id": "map-levant-1187",
-    "title": "خريطة الشام ومملكة بيت المقدس عام ١١٨٧م",
-    "summary": "مصوّرة تاريخية تبيّن حدود مملكة بيت المقدس الصليبية وإمارات الشام الأيوبية عشية معركة حطّين، مع خطوط سير الجيوش ومواقع القلاع الرئيسية.",
+    "id": "commons-maps-kingdom-jerusalem",
+    "title": "خرائط مملكة بيت المقدس الصليبية",
+    "summary": "تصنيف ويكيميديا كومنز للخرائط التاريخية لمملكة بيت المقدس: الحدود والقلاع وخطوط سير الجيوش عشية حطّين. كلّها بتراخيص حرّة تسمح بإعادة الاستعمال مع النسبة.",
     "format": "map",
-    "language": ["en", "ar"],
-    "creator": { "name": "ويكيميديا كومنز", "role": "مساهمون" },
-    "publisher": { "name": "ويكيميديا", "url": "https://commons.wikimedia.org" },
+    "language": [
+      "en",
+      "ar"
+    ],
+    "creator": {
+      "name": "مساهمو ويكيميديا كومنز",
+      "role": "مصدر مفتوح"
+    },
+    "publisher": {
+      "name": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org"
+    },
     "sourcePlatform": "web",
-    "externalUrl": "https://commons.wikimedia.org/wiki/Category:Maps_of_the_Kingdom_of_Jerusalem",
+    "externalUrl": "https://commons.wikimedia.org/wiki/Category%3AMaps_of_the_Kingdom_of_Jerusalem",
     "embed": null,
     "thumbnail": null,
-    "publishedDate": "2012",
-    "addedDate": "2026-08-09",
-    "historical": { "startYear": 1187, "endYear": 1187, "eraId": "hattin-jerusalem" },
-    "topics": ["military-campaigns", "crusades"],
-    "tags": ["خريطة", "جغرافيا تاريخية"],
-    "rights": { "license": "CC BY-SA 4.0" },
+    "publishedDate": null,
+    "addedDate": "2026-08-15",
+    "historical": {
+      "startYear": 1187,
+      "endYear": 1187,
+      "eraId": "hattin-jerusalem"
+    },
+    "topics": [
+      "military-campaigns",
+      "crusades"
+    ],
+    "tags": [
+      "خرائط",
+      "جغرافيا تاريخية",
+      "ويكيميديا"
+    ],
+    "rights": {
+      "license": "CC BY-SA 4.0"
+    },
     "duration": null,
-    "pageCount": null,
-    "curatorScore": 68,
-    "featured": false,
-    "status": "pending-review",
-    "lastChecked": null
-  },
-  {
-    "id": "article-fatimid-end-1171",
-    "title": "نهاية الخلافة الفاطمية وبداية السلطنة الأيوبية",
-    "summary": "مقال أكاديمي يحلّل التحوّل السياسي والمذهبي في مصر سنة ١١٧١م، وكيف أدار صلاح الدين الانتقال من الحكم الفاطمي إلى التبعية العباسية دون اضطراب داخلي واسع.",
-    "format": "article",
-    "language": ["ar"],
-    "creator": { "name": "دورية الدراسات التاريخية", "role": "دورية محكّمة" },
-    "publisher": { "name": "منصّة أكاديمية", "url": "https://www.jstor.org" },
-    "sourcePlatform": "jstor",
-    "externalUrl": "https://www.jstor.org/action/doBasicSearch?Query=Saladin+Fatimid+1171",
-    "embed": null,
-    "thumbnail": null,
-    "publishedDate": "2018",
-    "addedDate": "2026-08-08",
-    "historical": { "startYear": 1169, "endYear": 1171, "eraId": "egypt" },
-    "topics": ["state-administration", "biography"],
-    "tags": ["الفاطميون", "الوزارة", "١١٧١"],
-    "rights": { "license": "all-rights-reserved", "attributionNote": "قد يتطلب اشتراكاً مؤسسياً" },
-    "duration": null,
-    "pageCount": 24,
-    "curatorScore": 72,
-    "featured": false,
-    "status": "pending-review",
-    "lastChecked": null
-  },
-  {
-    "id": "video-siege-of-acre",
-    "title": "حصار عكا ١١٨٩–١١٩١م: أطول معارك الحملة الثالثة",
-    "summary": "عرض مصوّر لحصار عكا الذي استمر قرابة عامين، وحرب الإمداد البحري، ووصول ريتشارد قلب الأسد وفيليب أغسطس، وسقوط المدينة وأثره على موازين القوى.",
-    "format": "video",
-    "language": ["ar"],
-    "creator": { "name": "قناة تاريخية عربية", "role": "إعداد وتقديم" },
-    "publisher": { "name": "يوتيوب", "url": "https://youtube.com" },
-    "sourcePlatform": "youtube",
-    "externalUrl": "https://www.youtube.com/results?search_query=%D8%AD%D8%B5%D8%A7%D8%B1+%D8%B9%D9%83%D8%A7+%D8%B5%D9%84%D8%A7%D8%AD+%D8%A7%D9%84%D8%AF%D9%8A%D9%86",
-    "embed": null,
-    "thumbnail": null,
-    "publishedDate": "2022",
-    "addedDate": "2026-08-07",
-    "historical": { "startYear": 1189, "endYear": 1191, "eraId": "third-crusade" },
-    "topics": ["military-campaigns", "crusades"],
-    "tags": ["عكا", "حصار", "ريتشارد"],
-    "rights": { "license": "standard-youtube" },
-    "duration": 31,
     "pageCount": null,
     "curatorScore": 66,
     "featured": false,
-    "status": "pending-review",
-    "lastChecked": null
+    "status": "live",
+    "lastChecked": "2026-08-17"
   },
   {
-    "id": "legacy-saladin-in-west",
-    "title": "صلاح الدين في المخيال الأوروبي: من العدوّ إلى الفارس النبيل",
-    "summary": "بحث في تحوّل صورة صلاح الدين في الأدب والفن الأوروبيين، من أدب الحروب الصليبية إلى دانتي وڤالتر سكوت وليسينغ، وكيف صار رمزاً للفروسية والتسامح.",
+    "id": "wiki-salah-al-din",
+    "title": "صلاح الدين الأيوبي — مدخل عام",
+    "summary": "المقالة الموسوعية العربية: مدخلٌ سريع إلى حياته ودولته ومعاركه، مع قائمة مراجع موسّعة. نُدرجها كنقطة انطلاق للقارئ الجديد لا كمرجع نهائي.",
     "format": "article",
-    "language": ["en"],
-    "creator": { "name": "دراسات في تاريخ الأفكار", "role": "دورية محكّمة" },
-    "publisher": { "name": "منصّة أكاديمية", "url": "https://www.jstor.org" },
-    "sourcePlatform": "jstor",
-    "externalUrl": "https://www.jstor.org/action/doBasicSearch?Query=Saladin+chivalry+European+imagination",
+    "language": [
+      "ar"
+    ],
+    "creator": {
+      "name": "ويكيبيديا العربية",
+      "role": "تحرير جماعي"
+    },
+    "publisher": {
+      "name": "مؤسسة ويكيميديا",
+      "url": "https://ar.wikipedia.org"
+    },
+    "sourcePlatform": "web",
+    "externalUrl": "https://ar.wikipedia.org/wiki/%D8%B5%D9%84%D8%A7%D8%AD_%D8%A7%D9%84%D8%AF%D9%8A%D9%86_%D8%A7%D9%84%D8%A3%D9%8A%D9%88%D8%A8%D9%8A",
     "embed": null,
     "thumbnail": null,
-    "publishedDate": "2016",
-    "addedDate": "2026-08-06",
-    "historical": { "startYear": 1193, "endYear": 1260, "eraId": "death-legacy" },
-    "topics": ["legacy", "chronicles"],
-    "tags": ["الاستشراق", "دانتي", "ڤالتر سكوت", "الفروسية"],
-    "rights": { "license": "all-rights-reserved" },
+    "publishedDate": null,
+    "addedDate": "2026-08-14",
+    "historical": {
+      "startYear": 1137,
+      "endYear": 1193,
+      "eraId": "origins"
+    },
+    "topics": [
+      "biography"
+    ],
+    "tags": [
+      "مدخل",
+      "موسوعة",
+      "نقطة انطلاق"
+    ],
+    "rights": {
+      "license": "CC BY-SA 4.0"
+    },
     "duration": null,
-    "pageCount": 31,
-    "curatorScore": 74,
+    "pageCount": null,
+    "curatorScore": 60,
     "featured": false,
-    "status": "pending-review",
-    "lastChecked": null
+    "status": "live",
+    "lastChecked": "2026-08-17"
+  },
+  {
+    "id": "wiki-ayyubid-state",
+    "title": "الدولة الأيوبية",
+    "summary": "نشأة الدولة التي أسّسها صلاح الدين في مصر بعد الوزارة الفاطمية، وامتدادها إلى الشام والجزيرة واليمن، وبنيتها الإدارية والعسكرية حتى نهايتها.",
+    "format": "article",
+    "language": [
+      "ar"
+    ],
+    "creator": {
+      "name": "ويكيبيديا العربية",
+      "role": "تحرير جماعي"
+    },
+    "publisher": {
+      "name": "مؤسسة ويكيميديا",
+      "url": "https://ar.wikipedia.org"
+    },
+    "sourcePlatform": "web",
+    "externalUrl": "https://ar.wikipedia.org/wiki/%D8%A7%D9%84%D8%AF%D9%88%D9%84%D8%A9_%D8%A7%D9%84%D8%A3%D9%8A%D9%88%D8%A8%D9%8A%D8%A9",
+    "embed": null,
+    "thumbnail": null,
+    "publishedDate": null,
+    "addedDate": "2026-08-14",
+    "historical": {
+      "startYear": 1169,
+      "endYear": 1173,
+      "eraId": "egypt"
+    },
+    "topics": [
+      "state-administration",
+      "biography"
+    ],
+    "tags": [
+      "الأيوبيون",
+      "مصر",
+      "الوزارة"
+    ],
+    "rights": {
+      "license": "CC BY-SA 4.0"
+    },
+    "duration": null,
+    "pageCount": null,
+    "curatorScore": 58,
+    "featured": false,
+    "status": "live",
+    "lastChecked": "2026-08-17"
+  },
+  {
+    "id": "wiki-siege-of-acre",
+    "title": "حصار عكا ١١٨٩–١١٩١م",
+    "summary": "أطول معارك الحملة الصليبية الثالثة: حصارٌ استمر قرابة عامين، وحرب إمدادٍ بحرية، ووصول ريتشارد قلب الأسد وفيليب أغسطس، وسقوط المدينة وأثره في موازين القوى.",
+    "format": "article",
+    "language": [
+      "ar"
+    ],
+    "creator": {
+      "name": "ويكيبيديا العربية",
+      "role": "تحرير جماعي"
+    },
+    "publisher": {
+      "name": "مؤسسة ويكيميديا",
+      "url": "https://ar.wikipedia.org"
+    },
+    "sourcePlatform": "web",
+    "externalUrl": "https://ar.wikipedia.org/wiki/%D8%AD%D8%B5%D8%A7%D8%B1_%D8%B9%D9%83%D8%A7_(1189)",
+    "embed": null,
+    "thumbnail": null,
+    "publishedDate": null,
+    "addedDate": "2026-08-14",
+    "historical": {
+      "startYear": 1189,
+      "endYear": 1191,
+      "eraId": "third-crusade"
+    },
+    "topics": [
+      "military-campaigns",
+      "crusades"
+    ],
+    "tags": [
+      "عكا",
+      "حصار",
+      "ريتشارد قلب الأسد"
+    ],
+    "rights": {
+      "license": "CC BY-SA 4.0"
+    },
+    "duration": null,
+    "pageCount": null,
+    "curatorScore": 64,
+    "featured": false,
+    "status": "live",
+    "lastChecked": "2026-08-17"
+  },
+  {
+    "id": "wiki-treaty-of-ramla",
+    "title": "معاهدة الرملة ١١٩٢م",
+    "summary": "الصلح الذي أنهى الحملة الصليبية الثالثة: بقاء بيت المقدس تحت الحكم الأيوبي مقابل ضمان زيارة الحجّاج المسيحيين، وتثبيت الساحل بيد الفرنجة. نموذج لدبلوماسية صلاح الدين.",
+    "format": "article",
+    "language": [
+      "ar"
+    ],
+    "creator": {
+      "name": "ويكيبيديا العربية",
+      "role": "تحرير جماعي"
+    },
+    "publisher": {
+      "name": "مؤسسة ويكيميديا",
+      "url": "https://ar.wikipedia.org"
+    },
+    "sourcePlatform": "web",
+    "externalUrl": "https://ar.wikipedia.org/wiki/%D9%85%D8%B9%D8%A7%D9%87%D8%AF%D8%A9_%D8%A7%D9%84%D8%B1%D9%85%D9%84%D8%A9",
+    "embed": null,
+    "thumbnail": null,
+    "publishedDate": null,
+    "addedDate": "2026-08-13",
+    "historical": {
+      "startYear": 1192,
+      "endYear": 1192,
+      "eraId": "third-crusade"
+    },
+    "topics": [
+      "diplomacy",
+      "jerusalem",
+      "crusades"
+    ],
+    "tags": [
+      "معاهدة",
+      "الرملة",
+      "١١٩٢"
+    ],
+    "rights": {
+      "license": "CC BY-SA 4.0"
+    },
+    "duration": null,
+    "pageCount": null,
+    "curatorScore": 72,
+    "featured": false,
+    "status": "live",
+    "lastChecked": "2026-08-17"
   }
 ]
