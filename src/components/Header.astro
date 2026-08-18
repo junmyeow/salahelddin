@@ -24,9 +24,18 @@ const path = Astro.url.pathname.replace(/\/+$/, '') || '/';
         <svg viewBox="0 0 24 24" class="size-6">
           <mask id="crescent-mask">
             <rect width="24" height="24" fill="#fff" />
-            <circle cx="15.4" cy="10.4" r="8.3" fill="#000" />
+            <circle cx="14.6" cy="10.6" r="7.9" fill="#000" />
           </mask>
-          <circle cx="12" cy="12" r="9" fill="currentColor" mask="url(#crescent-mask)" />
+          {/* الهلال */}
+          <circle cx="11.2" cy="12" r="8.7" fill="currentColor" mask="url(#crescent-mask)" />
+          {/* نجمة ثمانية في فجوة الهلال — من مفردات الزخرفة نفسها المستعملة في الموقع */}
+          <path
+            d="M17.5 5.5 18.3 7.4 20.2 8.2 18.3 9 17.5 10.9 16.7 9 14.8 8.2 16.7 7.4Z"
+            fill="currentColor"
+          />
+          {/* بريق */}
+          <circle cx="19.5" cy="13.6" r="0.85" fill="currentColor" />
+          <circle cx="16.2" cy="16.5" r="0.6" fill="currentColor" opacity="0.7" />
         </svg>
       </span>
       <span class="font-display text-2xl font-bold text-ink-900 dark:text-parchment-100">

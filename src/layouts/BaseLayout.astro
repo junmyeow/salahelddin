@@ -14,7 +14,9 @@ interface Props {
 }
 
 const { title, description = site.description } = Astro.props;
-const pageTitle = title ? `${title} — ${site.shortTitle}` : `${site.title} — ${site.tagline}`;
+// الصفحة الرئيسية: اسم الموقع وحده. الصفحات الداخلية تسبقه باسمها
+// حتى يُميّز الزائر تبويباته المفتوحة.
+const pageTitle = title ? `${title} — ${site.shortTitle}` : site.title;
 ---
 
 <!doctype html>
