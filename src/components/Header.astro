@@ -18,17 +18,21 @@ const path = Astro.url.pathname.replace(/\/+$/, '') || '/';
   <div class="mx-auto flex max-w-7xl flex-wrap items-center gap-x-4 gap-y-2 px-4 py-3 sm:flex-nowrap sm:px-6">
     <a href={withBase('/')} class="group flex items-center gap-3">
       <span
-        class="grid size-10 shrink-0 place-items-center rounded-md bg-teal-800 text-gold-400 ring-1 ring-gold-500/80 ring-inset shadow-[var(--shadow-teal)] transition duration-200 ease-[var(--ease-out-soft)] group-hover:bg-teal-700 group-hover:ring-gold-400 group-active:translate-y-px dark:bg-teal-700"
+        class="grid size-10 shrink-0 place-items-center rounded-md bg-teal-800 text-gold-400 shadow-[var(--shadow-teal)] transition duration-200 ease-[var(--ease-out-soft)] group-hover:bg-teal-700 group-active:translate-y-px dark:bg-teal-700"
         aria-hidden="true"
       >
-        <svg viewBox="0 0 24 24" class="size-6">
-          {/* هلال متماثل: مركزا الدائرتين على المحور نفسه (cy=12) فيتساوى القرنان */}
-          <mask id="crescent-mask">
-            <rect width="24" height="24" fill="#fff" />
-            <circle cx="16.45" cy="12" r="6.9" fill="#000" />
-          </mask>
-          <circle cx="13.95" cy="12" r="7.8" fill="currentColor" mask="url(#crescent-mask)" />
-        </svg>
+        <span
+          class="grid size-7 place-items-center rounded-[3px] ring-1 ring-gold-500/85 ring-inset transition duration-200 ease-[var(--ease-out-soft)] group-hover:ring-gold-400"
+        >
+          <svg viewBox="0 0 24 24" class="size-4.5">
+            {/* هلال متماثل: مركزا الدائرتين على المحور نفسه (cy=12) فيتساوى القرنان */}
+            <mask id="crescent-mask">
+              <rect width="24" height="24" fill="#fff" />
+              <circle cx="16.45" cy="12" r="6.9" fill="#000" />
+            </mask>
+            <circle cx="13.95" cy="12" r="7.8" fill="currentColor" mask="url(#crescent-mask)" />
+          </svg>
+        </span>
       </span>
       <span class="font-display text-2xl font-bold text-ink-900 dark:text-parchment-100">
         {site.shortTitle}
