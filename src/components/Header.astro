@@ -21,18 +21,16 @@ const path = Astro.url.pathname.replace(/\/+$/, '') || '/';
         class="grid size-10 shrink-0 place-items-center rounded-lg bg-teal-800 text-gold-400 shadow-[var(--shadow-teal)] transition duration-200 ease-[var(--ease-out-soft)] group-hover:bg-teal-700 group-active:translate-y-px dark:bg-teal-700"
         aria-hidden="true"
       >
-        <svg viewBox="0 0 24 24" class="size-6" fill="none" stroke="currentColor" stroke-width="1.4">
-          <path d="M12 2.5 3.5 7v6.2c0 4.5 3.6 7.4 8.5 8.3 4.9-.9 8.5-3.8 8.5-8.3V7L12 2.5Z" />
-          <path d="M12 7.5 9.4 12l2.6 4.5 2.6-4.5L12 7.5Z" />
+        <svg viewBox="0 0 24 24" class="size-6">
+          <mask id="crescent-mask">
+            <rect width="24" height="24" fill="#fff" />
+            <circle cx="15.4" cy="10.4" r="8.3" fill="#000" />
+          </mask>
+          <circle cx="12" cy="12" r="9" fill="currentColor" mask="url(#crescent-mask)" />
         </svg>
       </span>
-      <span class="leading-tight">
-        <span class="block font-display text-2xl font-bold text-ink-900 dark:text-parchment-100">
-          {site.shortTitle}
-        </span>
-        <span class="hidden text-sm text-ink-500 sm:block dark:text-parchment-300/70">
-          {site.tagline}
-        </span>
+      <span class="font-display text-2xl font-bold text-ink-900 dark:text-parchment-100">
+        {site.shortTitle}
       </span>
     </a>
 
