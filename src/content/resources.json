@@ -1,10 +1,212 @@
 [
   {
+    "id": "elhamy-saladin-merits-faults",
+    "title": "صلاح الدين الأيوبي: حسناته وسيّئاته",
+    "titleAlt": "من سلسلة «١٠٠ سؤال في التاريخ» — الحلقة ٣٦",
+    "summary": "قراءة نقدية موازنة تعرض ما له وما عليه بدل التمجيد المطلق أو التهوين: سياسته المذهبية، وإدارته للدولة، ومواقفه العسكرية، وما أُخذ عليه فيها. مفيدة لمن يريد صورة مركّبة لا صورة أيقونية.",
+    "format": "video",
+    "language": [
+      "ar"
+    ],
+    "creator": {
+      "name": "محمد إلهامي",
+      "role": "باحث ومؤرّخ",
+      "url": "https://www.youtube.com/@MohamedElhamy"
+    },
+    "publisher": {
+      "name": "يوتيوب",
+      "url": "https://youtube.com"
+    },
+    "sourcePlatform": "youtube",
+    "externalUrl": "https://www.youtube.com/watch?v=lxYnDM_Jyhg",
+    "embed": {
+      "provider": "youtube",
+      "id": "lxYnDM_Jyhg",
+      "startAt": 0
+    },
+    "thumbnail": null,
+    "publishedDate": null,
+    "addedDate": "2026-08-18",
+    "historical": {
+      "startYear": 1137,
+      "endYear": 1193,
+      "eraId": "death-legacy"
+    },
+    "topics": [
+      "biography",
+      "legacy",
+      "state-administration"
+    ],
+    "tags": [
+      "قراءة نقدية",
+      "محمد إلهامي",
+      "١٠٠ سؤال في التاريخ"
+    ],
+    "rights": {
+      "license": "standard-youtube"
+    },
+    "duration": null,
+    "pageCount": null,
+    "curatorScore": 86,
+    "featured": false,
+    "status": "live",
+    "lastChecked": "2026-08-18"
+  },
+  {
+    "id": "aljazeera-saladin-rise-in-egypt",
+    "title": "صلاح الدين.. نجم يبزغ في خضمّ الصراع على مصر",
+    "summary": "كيف صعد صلاح الدين من ضابط في حملة عمّه شيركوه إلى وزيرٍ ثم صاحب أمرٍ في مصر، وسط تنازع الفاطميين والزنكيين والفرنجة على وادي النيل. يغطّي الحلقة التي صنعت مساره كلّه.",
+    "format": "video",
+    "language": [
+      "ar"
+    ],
+    "creator": {
+      "name": "قناة الجزيرة",
+      "role": "إنتاج تلفزيوني",
+      "url": "https://www.youtube.com/@aljazeerachannel"
+    },
+    "publisher": {
+      "name": "يوتيوب",
+      "url": "https://youtube.com"
+    },
+    "sourcePlatform": "youtube",
+    "externalUrl": "https://www.youtube.com/watch?v=noO7hg2NtAo",
+    "embed": {
+      "provider": "youtube",
+      "id": "noO7hg2NtAo",
+      "startAt": 0
+    },
+    "thumbnail": null,
+    "publishedDate": null,
+    "addedDate": "2026-08-18",
+    "historical": {
+      "startYear": 1164,
+      "endYear": 1171,
+      "eraId": "egypt"
+    },
+    "topics": [
+      "biography",
+      "military-campaigns",
+      "state-administration"
+    ],
+    "tags": [
+      "مصر",
+      "شيركوه",
+      "الوزارة",
+      "الفاطميون"
+    ],
+    "rights": {
+      "license": "standard-youtube"
+    },
+    "duration": null,
+    "pageCount": null,
+    "curatorScore": 84,
+    "featured": false,
+    "status": "live",
+    "lastChecked": "2026-08-18"
+  },
+  {
+    "id": "aljazeera-encyclopedia-saladin",
+    "title": "صلاح الدين الأيوبي: قائد وحّد العالم الإسلامي وأوقف المدّ الصليبي",
+    "summary": "مدخل موسوعي وافٍ من موسوعة الجزيرة: النشأة الكردية في تكريت، وتوحيد مصر والشام، وحطّين واستعادة بيت المقدس، وإصلاحاته النقدية والإدارية. مرجع سريع مُحرَّر تحريراً صحفياً موثّقاً.",
+    "format": "article",
+    "language": [
+      "ar"
+    ],
+    "creator": {
+      "name": "موسوعة الجزيرة",
+      "role": "تحرير موسوعي"
+    },
+    "publisher": {
+      "name": "الجزيرة نت",
+      "url": "https://www.aljazeera.net"
+    },
+    "sourcePlatform": "web",
+    "externalUrl": "https://www.aljazeera.net/encyclopedia/2025/2/25/%D8%B5%D9%84%D8%A7%D8%AD-%D8%A7%D9%84%D8%AF%D9%8A%D9%86-%D8%A7%D9%84%D8%A3%D9%8A%D9%88%D8%A8%D9%8A-%D9%82%D8%A7%D8%A6%D8%AF-%D9%83%D8%B1%D8%AF%D9%8A-%D9%88%D8%AD%D8%AF",
+    "embed": null,
+    "thumbnail": null,
+    "publishedDate": "2025-02-25",
+    "addedDate": "2026-08-18",
+    "historical": {
+      "startYear": 1137,
+      "endYear": 1193,
+      "eraId": "origins"
+    },
+    "topics": [
+      "biography",
+      "jerusalem",
+      "crusades"
+    ],
+    "tags": [
+      "موسوعة",
+      "مدخل عام",
+      "الجزيرة"
+    ],
+    "rights": {
+      "license": "all-rights-reserved",
+      "attributionNote": "كل الحقوق لمؤسسة الجزيرة"
+    },
+    "duration": null,
+    "pageCount": null,
+    "curatorScore": 78,
+    "featured": false,
+    "status": "live",
+    "lastChecked": "2026-08-18"
+  },
+  {
+    "id": "islamweb-al-nasir-salah-al-din",
+    "title": "الناصر لدين الله صلاح الدين الأيوبي",
+    "summary": "ترجمة تفصيلية تتتبّع سيرته من تكريت إلى دمشق فمصر، وتقف عند إنهاء الدولة الفاطمية وبناء المدارس ونشر المذهب السنّي، ثم الجهاد ضد الفرنجة. مكتوبة بلغة مبسّطة تصلح للقارئ العام.",
+    "format": "article",
+    "language": [
+      "ar"
+    ],
+    "creator": {
+      "name": "إسلام ويب",
+      "role": "تحرير"
+    },
+    "publisher": {
+      "name": "إسلام ويب",
+      "url": "https://www.islamweb.net"
+    },
+    "sourcePlatform": "web",
+    "externalUrl": "https://www.islamweb.net/ar/article/46365/%D8%A7%D9%84%D9%86%D8%A7%D8%B5%D8%B1-%D9%84%D8%AF%D9%8A%D9%86-%D8%A7%D9%84%D9%84%D9%87-%D8%B5%D9%84%D8%A7%D8%AD-%D8%A7%D9%84%D8%AF%D9%8A%D9%86-%D8%A7%D9%84%D8%A3%D9%8A%D9%88%D8%A8%D9%8A",
+    "embed": null,
+    "thumbnail": null,
+    "publishedDate": null,
+    "addedDate": "2026-08-18",
+    "historical": {
+      "startYear": 1174,
+      "endYear": 1186,
+      "eraId": "unification"
+    },
+    "topics": [
+      "biography",
+      "state-administration"
+    ],
+    "tags": [
+      "ترجمة",
+      "المدارس",
+      "إسلام ويب"
+    ],
+    "rights": {
+      "license": "all-rights-reserved"
+    },
+    "duration": null,
+    "pageCount": null,
+    "curatorScore": 64,
+    "featured": false,
+    "status": "live",
+    "lastChecked": "2026-08-18"
+  },
+  {
     "id": "aljazeera-crusades-series",
     "title": "الحروب الصليبية — سلسلة وثائقية",
     "summary": "سلسلة الجزيرة الوثائقية عن الحروب الصليبية في ستة أجزاء، من بدايات الحملة الأولى إلى استعادة بيت المقدس. الجزء الثالث «الوحدة» مخصَّص لصلاح الدين الأيوبي وصناعة التحوّل التاريخي، والرابع «التطهير» لسؤال كيف ضاعت القدس ثم عادت.",
     "format": "video",
-    "language": ["ar"],
+    "language": [
+      "ar"
+    ],
     "creator": {
       "name": "الجزيرة الوثائقية",
       "role": "إنتاج وثائقي",
@@ -33,8 +235,19 @@
       "endYear": 1192,
       "eraId": "hattin-jerusalem"
     },
-    "topics": ["crusades", "military-campaigns", "jerusalem", "biography"],
-    "tags": ["الجزيرة الوثائقية", "سلسلة", "ستة أجزاء", "حطين", "بيت المقدس"],
+    "topics": [
+      "crusades",
+      "military-campaigns",
+      "jerusalem",
+      "biography"
+    ],
+    "tags": [
+      "الجزيرة الوثائقية",
+      "سلسلة",
+      "ستة أجزاء",
+      "حطين",
+      "بيت المقدس"
+    ],
     "rights": {
       "license": "standard-youtube",
       "attributionNote": "تُعرض عبر مشغّل يوتيوب — كل الحقوق للجزيرة الوثائقية"

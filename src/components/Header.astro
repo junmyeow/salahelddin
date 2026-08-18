@@ -18,24 +18,16 @@ const path = Astro.url.pathname.replace(/\/+$/, '') || '/';
   <div class="mx-auto flex max-w-7xl flex-wrap items-center gap-x-4 gap-y-2 px-4 py-3 sm:flex-nowrap sm:px-6">
     <a href={withBase('/')} class="group flex items-center gap-3">
       <span
-        class="grid size-10 shrink-0 place-items-center rounded-lg bg-teal-800 text-gold-400 shadow-[var(--shadow-teal)] transition duration-200 ease-[var(--ease-out-soft)] group-hover:bg-teal-700 group-active:translate-y-px dark:bg-teal-700"
+        class="grid size-10 shrink-0 place-items-center rounded-md bg-gold-500 text-teal-900 shadow-[var(--shadow-gold)] transition duration-200 ease-[var(--ease-out-soft)] group-hover:bg-gold-400 group-active:translate-y-px dark:bg-gold-500 dark:text-teal-900"
         aria-hidden="true"
       >
         <svg viewBox="0 0 24 24" class="size-6">
+          {/* هلال متماثل: مركزا الدائرتين على المحور نفسه (cy=12) فيتساوى القرنان */}
           <mask id="crescent-mask">
             <rect width="24" height="24" fill="#fff" />
-            <circle cx="14.6" cy="10.6" r="7.9" fill="#000" />
+            <circle cx="16.45" cy="12" r="6.9" fill="#000" />
           </mask>
-          {/* الهلال */}
-          <circle cx="11.2" cy="12" r="8.7" fill="currentColor" mask="url(#crescent-mask)" />
-          {/* نجمة ثمانية في فجوة الهلال — من مفردات الزخرفة نفسها المستعملة في الموقع */}
-          <path
-            d="M17.5 5.5 18.3 7.4 20.2 8.2 18.3 9 17.5 10.9 16.7 9 14.8 8.2 16.7 7.4Z"
-            fill="currentColor"
-          />
-          {/* بريق */}
-          <circle cx="19.5" cy="13.6" r="0.85" fill="currentColor" />
-          <circle cx="16.2" cy="16.5" r="0.6" fill="currentColor" opacity="0.7" />
+          <circle cx="13.95" cy="12" r="7.8" fill="currentColor" mask="url(#crescent-mask)" />
         </svg>
       </span>
       <span class="font-display text-2xl font-bold text-ink-900 dark:text-parchment-100">
