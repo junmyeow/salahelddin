@@ -13,7 +13,7 @@ export const site = {
    * أنشئ نموذجاً مجانياً على https://formspree.io ثم ضع المعرّف هنا.
    * ما دامت القيمة null سيعرض النموذج رسالة إرشادية بدل الإرسال.
    */
-  formspreeId: null as string | null,
+  formspreeId: 'meajvgad' as string | null,
 
   /** رابط المستودع — يظهر في التذييل وفي زر «ساهم على GitHub» */
   repoUrl: 'https://github.com/junmyeow/salahelddin',
